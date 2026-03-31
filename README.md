@@ -1,256 +1,384 @@
-🧠 1. Overview
+# AI-Ready Design System Documentation
 
-This design system is designed for scalable product development and AI-driven implementation.
+## 1. Overview
+
+This design system is built for **scalable product development and AI-driven implementation**.
 
 It enforces a strict architecture:
 
+```
 _root (Primitives)
-→ global (Semantic tokens for layout, typography, elevation)
-→ theme (Semantic tokens for UI colors & interactions)
+→ global (Semantic tokens: typography, spacing, layout, elevation)
+→ theme (Semantic tokens: UI colors, states, interactions)
 → components
 → UI
-Core Principles
-Single source of truth via tokens
-No hardcoded values
-Strict naming and hierarchy
-Explicit rules (no assumptions)
-Designed for programmatic consumption (AI-friendly)
-🧱 2. Token Architecture
-2.1 Root (Primitives)
+```
 
-Defined in
+### Core Principles
 
-Raw values only (colors, spacing, alpha, etc.)
-Never used directly in components
+* Single source of truth via tokens
+* No hardcoded values
+* Strict naming and hierarchy
+* Explicit rules (no assumptions)
+* Designed for programmatic consumption (AI-ready)
+
+---
+
+## 2. Token Architecture
+
+### 2.1 Root (Primitives)
+
+* Contains raw values (colors, alpha, spacing, etc.)
+* Prefixed with `_root.*`
+* Never used directly in UI
 
 Example:
 
+```
 _root.color.neutral.100
 _root.color.brand.500
 _root.alpha.neutral.050
-2.2 Global (Semantic — Structure & Layout)
+```
 
-Defined in
+---
 
-Used for:
+### 2.2 Global Tokens
 
-Typography
-Spacing
-Layout
-Elevation (shadow tokens)
+* Semantic tokens for **structure and layout**
+* Includes:
 
-👉 These tokens are not tied to UI states
+  * Typography
+  * Spacing
+  * Layout
+  * Elevation (shadow)
 
-2.3 Theme (Semantic — UI)
+👉 Not tied to interaction states
 
-Defined in
+---
 
-Used for:
+### 2.3 Theme Tokens
 
-background
-text
-icon
-border
-elevation
-focus
-🎨 3. Color System
-3.1 Modes
+* Semantic tokens used in UI
+* Covers:
+
+  * background
+  * text
+  * icon
+  * border
+  * elevation
+  * focus
+
+👉 All UI must use `theme.*` tokens
+
+---
+
+## 3. Color System
+
+### 3.1 Modes
 
 The system supports:
 
-Light mode
-Dark mode
+* Light mode
+* Dark mode
 
-Each token defines:
+Each token defines both values:
 
-"value": {
-  "Light": "...",
-  "Dark": "..."
+```
+{
+  "light": "...",
+  "dark": "..."
 }
+```
 
-👉 Example:
+---
 
-theme.background.global.base
-3.2 Fixed Tokens
+### 3.2 Variants
 
-Some tokens are mode-independent:
+Available variants:
 
-theme.text.global.neutral.fixed
-
-👉 Same value in Light and Dark
-
-3.3 Variants
-
-Supported variants:
-
+```
 neutral
 brand
 danger
 warning
 success
-3.4 Intensity Scale
+```
+
+---
+
+### 3.3 Intensity Scale
 
 Each variant follows a consistent scale:
 
+```
 faint → lighter → medium → moderate → bolder → strong
+```
 
-👉 Example:
+Example:
 
+```
 theme.background.state.brand.medium.default
-⚙️ 4. State System
-4.1 Standard States
+```
 
-Used across components:
+---
 
+### 3.4 Fixed Tokens
+
+Some tokens are identical across modes:
+
+```
+theme.text.global.neutral.fixed
+```
+
+👉 These must not change between light and dark
+
+---
+
+## 4. State System
+
+### 4.1 Standard States
+
+```
 default
 hovered
 pressed
 focused
 disabled
-4.2 State Structure
+```
 
-States are defined in tokens:
+---
 
-theme.background.state.[variant].[intensity].[state]
+### 4.2 Token Structure
 
-👉 Example from your system:
+States are defined as:
 
+```
+theme.[category].state.[variant].[intensity].[state]
+```
+
+Example:
+
+```
 theme.background.state.neutral.faint.hovered
-4.3 Shared States
+```
 
-Shared tokens exist for cross-component behavior:
+---
 
+### 4.3 Shared States
+
+Shared states apply globally:
+
+```
 theme.background.state.shared.disabled
 theme.text.state.shared.disabled
 theme.icon.state.shared.disabled
-🎯 5. Interaction Rules
-5.1 Hover / Pressed
-Always use dedicated state tokens
-Never apply opacity or color transformations manually
-5.2 Focus
+```
 
-Focus is handled via focus tokens + effect styles
+---
 
-Defined in:
+## 5. Interaction Rules
 
-(tokens)
-(effects)
+### 5.1 Hover / Pressed
 
-👉 Structure:
+* Always use state tokens
+* Never simulate with opacity or color manipulation
 
+---
+
+### 5.2 Focus
+
+Focus is handled using dedicated tokens:
+
+```
 theme.focus.[variant].inner
 theme.focus.[variant].offset
+```
 
-👉 Rendering:
+Rendering:
 
-dual ring (inner + offset)
-no background override
-5.3 Disabled
-Disabled overrides ALL states
-Uses shared tokens
-🧩 6. Component Architecture
-6.1 General Pattern
+* Dual ring system (inner + offset)
+* No background modification
+
+---
+
+### 5.3 Disabled
+
+* Overrides all other states
+* Uses shared disabled tokens
+
+---
+
+## 6. Component Architecture
+
+### 6.1 Standard Props
 
 All components follow:
 
+```
 size
 variant
 state
-+ boolean props
-+ content props
-6.2 State Logic
-state = visual state (not interaction logic)
-Interaction (hover, focus) maps to state visually
-focused ALWAYS uses focus tokens (ring)
-6.3 Composition
+```
+
+Plus:
+
+* boolean flags (`isOpen`, `isSelected`, etc.)
+* content props (`label`, `icon`, etc.)
+
+---
+
+### 6.2 State Logic
+
+* `state` controls visual appearance
+* Interaction maps to state
+* `focused` always uses focus tokens
+
+---
+
+### 6.3 Composition Pattern
 
 Components are composable:
 
+```
 input-field → input-base
 combobox-field → combobox-base
 select-field → select-base
+```
 
-👉 Field = label + hint + base component
+👉 Field = structure (label, hint, etc.)
+👉 Base = interactive element
 
-6.4 Controlled Flags
+---
+
+### 6.4 Behavioral Flags
 
 Common flags:
 
+```
 isSelected
 isOpen
 isFilled
 isRequired
 isInteractive
+```
 
-👉 These drive UI behavior (not styling directly)
+👉 These control behavior, not styling directly
 
-🎨 7. Typography System
+---
 
-Defined in
+## 7. Typography System
 
-Structure
-text.heading.h1 → h4
+Structure:
+
+```
+text.heading (h1 → h4)
 text.content.lead
 text.content.emphasis
 text.content.base
 text.content.subtle
 text.content.caption
-Properties
-font-family: Inter
-weight: 400 → 700
-sizes: 12px → 48px
-consistent line-height scale
-🌫 8. Elevation System
+```
 
-Defined in:
+Properties:
 
-(tokens)
-(effects)
-Levels
+* Font: Inter
+* Weights: 400 → 700
+* Sizes: 12px → 48px
+* Consistent line-height scale
+
+---
+
+## 8. Elevation System
+
+Levels:
+
+```
 elevation.sm
 elevation.md
 elevation.lg
+```
 
-👉 Implemented as box-shadow
+* Implemented via box-shadow
+* Defined in tokens and effect styles
 
-🔲 9. Layout System
+---
 
-Defined in
+## 9. Layout System
 
-Grid
+Grid system:
+
+```
 lg → 12 columns
 md → 8 columns
 sm → 4 columns
+```
 
-With:
+Includes:
 
-gutters
-margins
-🚫 10. Strict Rules (CRITICAL FOR AI)
-MUST
-Use ONLY semantic tokens (theme.*)
-Respect naming structure exactly
-Use predefined states only
-Use focus tokens for focus state
-Use effect styles for elevation and focus
-MUST NOT
-❌ Use _root tokens in UI
-❌ Hardcode colors
-❌ Create new states
-❌ Infer missing values
-❌ Apply opacity manually
-🧠 11. AI Implementation Rules
+* gutters
+* margins
+
+---
+
+## 10. Strict Rules (CRITICAL)
+
+### MUST
+
+* Use only `theme.*` tokens
+* Respect naming conventions strictly
+* Use predefined states only
+* Use focus tokens for focus state
+* Use effect styles for elevation and focus
+
+---
+
+### MUST NOT
+
+* ❌ Use `_root` tokens in UI
+* ❌ Hardcode values
+* ❌ Create new states
+* ❌ Infer missing tokens
+* ❌ Modify colors manually
+
+---
+
+## 11. AI Implementation Rules
 
 When generating code:
 
-Always map UI → theme tokens
-Never guess missing tokens → ask instead
-Respect component API strictly
-Prefer composition over duplication
-Ensure accessibility (focus visible, semantic HTML)
-⚛️ 12. Expected Output (for AI)
-React components
-TypeScript props
-Tailwind-compatible structure
-Accessible (ARIA compliant)
-Token-driven styling only
+1. Always map UI → theme tokens
+2. Never guess missing values → ask instead
+3. Respect component API strictly
+4. Prefer composition over duplication
+5. Ensure accessibility (ARIA, focus visibility)
+
+---
+
+## 12. Expected Output
+
+The system is designed to generate:
+
+* React components
+* TypeScript interfaces
+* Tailwind-compatible styles
+* Accessible UI (WCAG compliant)
+
+---
+
+## 13. Development Workflow
+
+1. Use `tokens.json` as source of truth
+2. Use `components.json` for component API
+3. Follow README rules strictly
+4. Do not deviate from token system
+
+---
+
+## 14. Important Notes
+
+* This design system is deterministic
+* No visual decision should be inferred
+* Every UI element must be traceable to a token
+* If a token is missing → stop and ask
+
+---
