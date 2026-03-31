@@ -1,156 +1,154 @@
-# AI-Ready Design System Documentation
+# AI Implementation Guide — Design System
 
-## 1. Overview
+## 1. Purpose
 
-This design system is built for **scalable UI development and AI-driven implementation**.
+This document explains how to use the Design System files to generate UI components **without ambiguity**.
 
-It follows a strict multi-layer architecture:
+You must strictly follow the structure and rules defined here.
 
-```
-_root (Primitives)
-→ global (Semantic tokens: typography, layout, spacing, shadow)
-→ theme (Semantic tokens: UI colors, states, interactions)
-→ components
-→ UI
+---
+
+## 2. Source Files
+
+You are provided with the following files:
+
+### Core Files
+
+* `tokens.json`
+* `component-api.json`
+* `component-mapping.json`
+* `component-behavior.json`
+* `component-examples.json`
+
+---
+
+## 3. System Architecture
+
+The system follows a strict dependency chain:
+
+```txt
+_root → global → theme → mapping → components → UI
 ```
 
 ---
 
-## 2. Token Architecture
+## 4. Token Usage Rules
 
-### 2.1 Root (Primitives)
+### 4.1 Token Layers
 
-Defined in 
+#### `_root` (Primitives)
 
-* Contains all raw values:
+* Raw values (colors, spacing, typography)
+* NEVER use directly in UI
 
-  * colors
-  * alpha
-  * typography base values
-  * spacing
-  * sizing
-  * radius
-  * grid
-* Prefixed with `_root.*`
-* **Never used directly in UI**
+#### `global`
 
-Example:
+* Layout and typography
+* Used for spacing, grid, font styles
 
-```
-_root.color.neutral.500
-_root.alpha.brand.200
-_root.space.16
-_root.radius.8
+#### `theme`
+
+* UI styling tokens
+* ONLY source for:
+
+  * background
+  * text
+  * icon
+  * border
+  * focus
+  * elevation
+
+---
+
+### 4.2 Mandatory Rule
+
+```txt
+UI MUST use only theme.* tokens
 ```
 
 ---
 
-### 2.2 Global Tokens
+### 4.3 Mode Handling
 
-Defined in 
+Tokens define:
 
-Used for **structure and layout only**:
-
-* Typography (font, size, weight, leading, tracking)
-* Layout (grid, spacing, padding, gap)
-* Radius, border width
-* Shadow primitives
-
-👉 These tokens map directly to `_root`
-
-Example:
-
-```
-global.font.size.heading.h1 → _root.font.size.48
-global.layout.padding.md → _root.space.8
-```
-
-👉 Global tokens are **not state-based**
-
----
-
-### 2.3 Theme Tokens
-
-Defined in `theme.json`
-
-Used for **UI rendering only**:
-
-* background
-* text
-* icon
-* border
-* elevation
-* focus
-
-👉 All UI must use `theme.*` tokens
-
----
-
-## 3. Color System
-
-### 3.1 Modes
-
-Each token supports:
-
-* Light mode
-* Dark mode
-
-Structure:
-
-```
+```json
 {
   "light": "...",
   "dark": "..."
 }
 ```
 
----
+You must:
 
-### 3.2 Variants
-
-```
-neutral
-brand
-danger
-warning
-success
-```
+* support both modes
+* never hardcode colors
 
 ---
 
-### 3.3 Intensity Scale
+## 5. Component Generation Process
 
-Each variant follows:
-
-```
-faint → lighter → medium → moderate → bolder → strong
-```
-
-Example:
-
-```
-theme.background.state.brand.medium.default
-```
+You must follow this exact order:
 
 ---
 
-### 3.4 Fixed Tokens
+### Step 1 — Read component API
 
-Some tokens are mode-independent:
+From `component-api.json`:
 
-```
-theme.text.global.neutral.fixed
-```
-
-👉 Same value in light and dark
+* identify props
+* identify variants
+* identify states
+* identify slots (children)
 
 ---
 
-## 4. State System
+### Step 2 — Apply mapping
 
-### 4.1 Standard States
+From `component-mapping.json`:
 
-```
+* map tokens to:
+
+  * background
+  * text
+  * border
+  * icon
+  * elevation
+  * focus
+
+For each:
+
+* variant
+* state
+
+---
+
+### Step 3 — Apply behavior
+
+From `component-behavior.json`:
+
+* state transitions
+* interaction logic
+* keyboard handling
+* accessibility rules
+
+---
+
+### Step 4 — Validate with examples
+
+From `component-examples.json`:
+
+* ensure valid combinations
+* avoid invalid states
+* replicate real patterns
+
+---
+
+## 6. State System
+
+### 6.1 Available States
+
+```txt
 default
 hovered
 pressed
@@ -160,238 +158,204 @@ disabled
 
 ---
 
-### 4.2 Token Structure
+### 6.2 State Priority
 
-```
-theme.[category].state.[variant].[intensity].[state]
-```
-
-Example:
-
-```
-theme.background.state.neutral.faint.hovered
+```txt
+disabled > focused > pressed > hovered > default
 ```
 
 ---
 
-### 4.3 Shared States
+### 6.3 Rules
 
-Global states:
-
-```
-theme.background.state.shared.disabled
-theme.text.state.shared.disabled
-theme.icon.state.shared.disabled
-```
+* Disabled overrides all states
+* Focus always includes a ring (focus token)
+* Hover and pressed must not be simulated
 
 ---
 
-## 5. Interaction Rules
+## 7. Component Structure
 
-### 5.1 Hover / Pressed
+### 7.1 Base Pattern
 
-* Always use state tokens
-* Never use opacity or manual color changes
+Each component must:
 
----
-
-### 5.2 Focus
-
-Focus is handled via tokens + effects:
-
-* Tokens: `theme.focus.*`
-* Effects: defined in styles
-
-Structure:
-
-```
-theme.focus.[variant].inner
-theme.focus.[variant].offset
-```
-
-Rendering:
-
-* dual ring (inner + offset)
-* no background override
+* use props from `component-api.json`
+* render slots properly
+* apply tokens from mapping
 
 ---
 
-### 5.3 Disabled
+### 7.2 Composition
 
-* Overrides all states
-* Uses shared tokens
+Some components are composed:
 
----
-
-## 6. Component Architecture
-
-### 6.1 Standard Props
-
-All components follow:
-
-```
-size
-variant
-state
-```
-
-Plus:
-
-* boolean flags (`isOpen`, `isSelected`, etc.)
-* content props (`label`, `icon`, etc.)
-
----
-
-### 6.2 State Logic
-
-* `state` = visual representation
-* interaction → maps to state
-* `focused` always uses focus tokens
-
----
-
-### 6.3 Composition Pattern
-
-Components are composable:
-
-```
+```txt
 input-field → input-base
 combobox-field → combobox-base
 select-field → select-base
-datepicker-field → datepicker-base
-```
-
-👉 Field = structure (label, hint)
-👉 Base = interaction
-
----
-
-### 6.4 Behavioral Flags
-
-```
-isSelected
-isOpen
-isFilled
-isRequired
-isInteractive
-```
-
-👉 These control behavior, not styling directly
-
----
-
-## 7. Typography System
-
-Based on global tokens:
-
-```
-heading → h1, h2, h3, h4
-content → lead, emphasis, base, subtle, caption
-```
-
-Properties:
-
-* Font: Inter
-* Weight: 400 → 700
-* Size: 12px → 48px
-* Line-height from `_root.font.leading`
-* Tracking from `_root.font.tracking`
-
----
-
-## 8. Layout System
-
-Grid:
-
-```
-lg → 12 columns
-md → 8 columns
-sm → 4 columns
-```
-
-Includes:
-
-* margin
-* gutter
-* padding
-* gap
-
----
-
-## 9. Elevation System
-
-Based on:
-
-* global shadow tokens
-* theme elevation tokens
-
-Levels:
-
-```
-elevation.sm
-elevation.md
-elevation.lg
 ```
 
 ---
 
-## 10. Strict Rules (CRITICAL)
+## 8. Styling Rules
 
-### MUST
+### 8.1 Mandatory
 
-* Use ONLY `theme.*` tokens in UI
-* Use `global.*` for layout and typography
-* Respect naming structure exactly
-* Use predefined states only
-* Use focus tokens for focus
-
----
-
-### MUST NOT
-
-* ❌ Use `_root` tokens in UI
-* ❌ Hardcode values
-* ❌ Create new tokens
-* ❌ Infer missing values
-* ❌ Apply manual color transformations
+* Use tokens only
+* No inline values
+* No hardcoded colors
+* No manual opacity
 
 ---
 
-## 11. AI Implementation Rules
+### 8.2 Forbidden
 
-When generating code:
-
-1. Use `theme.*` for UI styling
-2. Use `global.*` for layout and typography
-3. Never resolve `_root` manually
-4. Never guess missing tokens → ask
-5. Respect component API strictly
-6. Prefer composition over duplication
-7. Ensure accessibility (ARIA, focus visible)
-
+* ❌ Using `_root` directly
+* ❌ Creating new tokens
+* ❌ Inferring missing styles
+* ❌ Modifying colors manually
 
 ---
 
-## 12. Development Workflow
+## 9. Interaction Rules
 
-1. `_root` = raw values
-2. `global` = layout & typography
-3. `theme` = UI styling
-4. `components` = API contract
+### 9.1 Hover
 
-👉 Always follow this chain:
+* triggered on pointer hover
+* uses `hovered` state tokens
 
+---
+
+### 9.2 Pressed
+
+* triggered on pointer down
+* uses `pressed` state tokens
+
+---
+
+### 9.3 Focus
+
+* triggered on keyboard navigation
+* must display focus ring
+
+---
+
+### 9.4 Disabled
+
+* blocks all interaction
+* overrides all visual states
+
+---
+
+## 10. Accessibility Rules
+
+You must:
+
+* use semantic HTML elements
+* support keyboard navigation
+* ensure visible focus
+* use ARIA when needed
+
+Examples:
+
+* button → `<button>`
+* input → `<input>`
+* combobox → ARIA combobox pattern
+
+---
+
+## 11. Behavior Rules
+
+From `component-behavior.json`:
+
+* define open/close logic
+* manage internal states
+* synchronize UI and interaction
+
+---
+
+## 12. Validation Rules
+
+Before generating code, ensure:
+
+* all props are valid
+* no invalid combinations
+* mapping exists for all states
+* behavior is defined
+
+---
+
+## 13. Output Requirements
+
+You must generate:
+
+* React components
+* TypeScript types
+* Token-based styling
+* Accessible interactions
+
+---
+
+## 14. Error Handling
+
+If something is missing:
+
+```txt
+DO NOT GUESS
+ASK FOR CLARIFICATION
 ```
-_root → global/theme → component → UI
+
+---
+
+## 15. Final Rule
+
+This system is deterministic.
+
+```txt
+No visual or behavioral decision should be inferred.
+```
+
+Every UI element must be:
+
+```txt
+Token → Mapping → Component → UI
 ```
 
 ---
 
-## 13. Important Notes
+## 16. Example Workflow
 
-* This system is deterministic
-* No visual decision should be inferred
-* Every UI element must map to a token
-* If a token is missing → STOP and ask
+```txt
+Generate Button:
+
+1. Read Button API
+2. Identify variant + state
+3. Apply mapping tokens
+4. Apply behavior rules
+5. Validate with examples
+6. Generate component
+```
+
+---
+
+## 17. Summary
+
+To build components:
+
+* Follow the token hierarchy
+* Use mapping for styling
+* Use API for structure
+* Use behavior for interaction
+* Use examples for validation
+
+---
+
+This ensures:
+
+* consistency
+* scalability
+* AI reliability
+* production readiness
 
 ---
