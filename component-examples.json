@@ -1,0 +1,1172 @@
+{
+  "meta": {
+    "source": "Generated examples"
+  },
+  "components": {
+    "accordion": {
+      "validDefault": {
+        "state": "default",
+        "isOpen": false,
+        "hasIconLeft": false
+      },
+      "edgeCase": {
+        "state": "focused",
+        "isOpen": true,
+        "hasIconLeft": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "state": "disabled",
+            "isOpen": true
+          },
+          "reason": "Disabled controls cannot be open."
+        }
+      ],
+      "commonPatterns": []
+    },
+    "avatar-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isInteractive": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isInteractive": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "avatar-label": {
+      "validDefault": {
+        "size": "md"
+      },
+      "edgeCase": {
+        "size": "md"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "badge": {
+      "validDefault": {
+        "size": "md",
+        "variant": "brand",
+        "hasIconLeft": false,
+        "hasIconRight": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "variant": "brand",
+        "hasIconLeft": false,
+        "hasIconRight": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "banner": {
+      "validDefault": {
+        "variant": "brand",
+        "hasIcon": false
+      },
+      "edgeCase": {
+        "variant": "brand",
+        "hasIcon": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "breadcrumb": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "button": {
+      "validDefault": {
+        "size": "md",
+        "variant": "primary",
+        "state": "default",
+        "hasIconLeft": false,
+        "hasIconRight": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "variant": "primary",
+        "state": "focused",
+        "hasIconLeft": false,
+        "hasIconRight": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Primary page CTA",
+          "props": {
+            "size": "md",
+            "variant": "primary",
+            "state": "default",
+            "hasIconLeft": false,
+            "hasIconRight": false
+          }
+        },
+        {
+          "scenario": "Secondary action with icon",
+          "props": {
+            "size": "md",
+            "variant": "secondary",
+            "state": "default",
+            "hasIconLeft": true,
+            "hasIconRight": false
+          }
+        }
+      ]
+    },
+    "button-icon": {
+      "validDefault": {
+        "size": "md",
+        "variant": "primary",
+        "state": "default",
+        "hasIcon": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "variant": "primary",
+        "state": "focused",
+        "hasIcon": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "button-icon-menu": {
+      "validDefault": {
+        "size": "md",
+        "isOpen": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "isOpen": true
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "calendar": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "calendar-date": {
+      "validDefault": {
+        "state": "default",
+        "isSelected": false
+      },
+      "edgeCase": {
+        "state": "focused",
+        "isSelected": true
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "state": "default",
+            "isSelected": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "state": "focused",
+            "isSelected": true
+          }
+        }
+      ]
+    },
+    "card-action": {
+      "validDefault": {
+        "state": "default",
+        "hasIconLeft": false,
+        "hasDescription": false,
+        "hasHintText": false,
+        "hasCheckbox": false,
+        "hasRadio": false,
+        "hasSwitch": false,
+        "hasIconRight": false
+      },
+      "edgeCase": {
+        "state": "focused",
+        "hasIconLeft": false,
+        "hasDescription": false,
+        "hasHintText": false,
+        "hasCheckbox": false,
+        "hasRadio": false,
+        "hasSwitch": false,
+        "hasIconRight": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "card-image": {
+      "validDefault": {
+        "state": "default",
+        "hasDescription": false
+      },
+      "edgeCase": {
+        "state": "focused",
+        "hasDescription": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "checkbox-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isSelected": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isSelected": true
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "isSelected": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "isSelected": true
+          }
+        }
+      ]
+    },
+    "checkbox-item": {
+      "validDefault": {
+        "size": "md",
+        "hasDescription": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "hasDescription": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "chip-item": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isSelected": false,
+        "hasIconLeft": false,
+        "hasIconRight": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isSelected": true,
+        "hasIconLeft": false,
+        "hasIconRight": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "isSelected": false,
+            "hasIconLeft": false,
+            "hasIconRight": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "isSelected": true,
+            "hasIconLeft": false,
+            "hasIconRight": false
+          }
+        }
+      ]
+    },
+    "combobox-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "validation": "none",
+        "isFilled": false,
+        "isOpen": false,
+        "hasIconLeft": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "validation": "error",
+        "isFilled": true,
+        "isOpen": true,
+        "hasIconLeft": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "state": "disabled",
+            "isOpen": true
+          },
+          "reason": "Disabled controls cannot be open."
+        }
+      ],
+      "commonPatterns": [
+        {
+          "scenario": "Closed control",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "validation": "none",
+            "isFilled": false,
+            "isOpen": false,
+            "hasIconLeft": false
+          }
+        },
+        {
+          "scenario": "Open control",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "validation": "none",
+            "isFilled": true,
+            "isOpen": true,
+            "hasIconLeft": false
+          }
+        }
+      ]
+    },
+    "combobox-field": {
+      "validDefault": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "hasLabel": false,
+            "hasHintText": true
+          },
+          "reason": "Hint text without a visible label should be justified by surrounding context."
+        }
+      ],
+      "commonPatterns": []
+    },
+    "datepicker-base": {
+      "validDefault": {
+        "state": "default",
+        "isFilled": false,
+        "isOpen": false,
+        "hasIconLeft": false
+      },
+      "edgeCase": {
+        "state": "focused",
+        "isFilled": true,
+        "isOpen": true,
+        "hasIconLeft": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "state": "disabled",
+            "isOpen": true
+          },
+          "reason": "Disabled controls cannot be open."
+        }
+      ],
+      "commonPatterns": [
+        {
+          "scenario": "Closed control",
+          "props": {
+            "size": null,
+            "state": "default",
+            "validation": null,
+            "isFilled": false,
+            "isOpen": false,
+            "hasIconLeft": false
+          }
+        },
+        {
+          "scenario": "Open control",
+          "props": {
+            "size": null,
+            "state": "focused",
+            "validation": null,
+            "isFilled": true,
+            "isOpen": true,
+            "hasIconLeft": false
+          }
+        }
+      ]
+    },
+    "datepicker-field": {
+      "validDefault": {
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "edgeCase": {
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "hasLabel": false,
+            "hasHintText": true
+          },
+          "reason": "Hint text without a visible label should be justified by surrounding context."
+        }
+      ],
+      "commonPatterns": []
+    },
+    "divider": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "dropdown-item": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isSelected": false,
+        "hasIconLeft": false,
+        "hasSwitch": false,
+        "hasCheckbox": false,
+        "hasBadge": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isSelected": true,
+        "hasIconLeft": false,
+        "hasSwitch": false,
+        "hasCheckbox": false,
+        "hasBadge": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "isSelected": false,
+            "hasIconLeft": false,
+            "hasSwitch": false,
+            "hasCheckbox": false,
+            "hasBadge": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "isSelected": true,
+            "hasIconLeft": false,
+            "hasSwitch": false,
+            "hasCheckbox": false,
+            "hasBadge": false
+          }
+        }
+      ]
+    },
+    "dropdown-list": {
+      "validDefault": {
+        "size": "md",
+        "hasScrollbar": false,
+        "hasTitle": false,
+        "hasSearch": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "hasScrollbar": false,
+        "hasTitle": false,
+        "hasSearch": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "dropdown-search": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isFilled": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isFilled": true
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "dropdown-title": {
+      "validDefault": {
+        "size": "md"
+      },
+      "edgeCase": {
+        "size": "md"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "input-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "validation": "none",
+        "isFilled": false,
+        "hasIconLeft": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "validation": "error",
+        "isFilled": true,
+        "hasIconLeft": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Empty field",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "validation": "none",
+            "isFilled": false,
+            "hasIconLeft": false
+          }
+        },
+        {
+          "scenario": "Field with validation error",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "validation": "error",
+            "isFilled": true,
+            "hasIconLeft": false
+          }
+        }
+      ]
+    },
+    "input-field": {
+      "validDefault": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "hasLabel": false,
+            "hasHintText": true
+          },
+          "reason": "Hint text without a visible label should be justified by surrounding context."
+        }
+      ],
+      "commonPatterns": []
+    },
+    "link": {
+      "validDefault": {
+        "size": "md",
+        "variant": "primary",
+        "state": "default"
+      },
+      "edgeCase": {
+        "size": "md",
+        "variant": "primary",
+        "state": "focused"
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "contentType": "text"
+          },
+          "reason": "Text link requires label content."
+        },
+        {
+          "props": {
+            "contentType": "icon"
+          },
+          "reason": "Icon link requires icon content."
+        }
+      ],
+      "commonPatterns": []
+    },
+    "modal": {
+      "validDefault": {
+        "variant": "info"
+      },
+      "edgeCase": {
+        "variant": "info"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "pagination": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "pagination-item": {
+      "validDefault": {
+        "state": "default",
+        "isSelected": false
+      },
+      "edgeCase": {
+        "state": "focused",
+        "isSelected": true
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "state": "default",
+            "isSelected": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "state": "focused",
+            "isSelected": true
+          }
+        }
+      ]
+    },
+    "password-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "validation": "none",
+        "isFilled": false,
+        "isVisible": false,
+        "hasIconLeft": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "validation": "error",
+        "isFilled": true,
+        "isVisible": false,
+        "hasIconLeft": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Empty field",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "validation": "none",
+            "isFilled": false,
+            "hasIconLeft": false
+          }
+        },
+        {
+          "scenario": "Field with validation error",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "validation": "error",
+            "isFilled": true,
+            "hasIconLeft": false
+          }
+        }
+      ]
+    },
+    "password-field": {
+      "validDefault": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "hasLabel": false,
+            "hasHintText": true
+          },
+          "reason": "Hint text without a visible label should be justified by surrounding context."
+        }
+      ],
+      "commonPatterns": []
+    },
+    "progress": {
+      "validDefault": {
+        "size": "md"
+      },
+      "edgeCase": {
+        "size": "md"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "progress-value": {
+      "validDefault": {
+        "size": "md"
+      },
+      "edgeCase": {
+        "size": "md"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "radio-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isSelected": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isSelected": true
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "isSelected": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "isSelected": true
+          }
+        }
+      ]
+    },
+    "radio-item": {
+      "validDefault": {
+        "size": "md",
+        "hasDescription": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "hasDescription": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "scrollbar": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "search-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "validation": "none",
+        "isFilled": false,
+        "isOpen": false,
+        "hasIconLeft": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "validation": "error",
+        "isFilled": true,
+        "isOpen": true,
+        "hasIconLeft": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "state": "disabled",
+            "isOpen": true
+          },
+          "reason": "Disabled controls cannot be open."
+        }
+      ],
+      "commonPatterns": [
+        {
+          "scenario": "Empty field",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "validation": "none",
+            "isFilled": false,
+            "hasIconLeft": false
+          }
+        },
+        {
+          "scenario": "Field with validation error",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "validation": "error",
+            "isFilled": true,
+            "hasIconLeft": false
+          }
+        }
+      ]
+    },
+    "search-field": {
+      "validDefault": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "hasLabel": false,
+            "hasHintText": true
+          },
+          "reason": "Hint text without a visible label should be justified by surrounding context."
+        }
+      ],
+      "commonPatterns": []
+    },
+    "segemented": {
+      "validDefault": {
+        "size": "md"
+      },
+      "edgeCase": {
+        "size": "md"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "segmented-item": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isSelected": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isSelected": true
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "isSelected": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "isSelected": true
+          }
+        }
+      ]
+    },
+    "select-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "validation": "none",
+        "isFilled": false,
+        "isOpen": false,
+        "hasIconLeft": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "validation": "error",
+        "isFilled": true,
+        "isOpen": true,
+        "hasIconLeft": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "state": "disabled",
+            "isOpen": true
+          },
+          "reason": "Disabled controls cannot be open."
+        }
+      ],
+      "commonPatterns": [
+        {
+          "scenario": "Closed control",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "validation": "none",
+            "isFilled": false,
+            "isOpen": false,
+            "hasIconLeft": false
+          }
+        },
+        {
+          "scenario": "Open control",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "validation": "none",
+            "isFilled": true,
+            "isOpen": true,
+            "hasIconLeft": false
+          }
+        }
+      ]
+    },
+    "select-field": {
+      "validDefault": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "isRequired": false,
+        "hasLabel": false,
+        "hasHintText": false
+      },
+      "invalidCombinations": [
+        {
+          "props": {
+            "hasLabel": false,
+            "hasHintText": true
+          },
+          "reason": "Hint text without a visible label should be justified by surrounding context."
+        }
+      ],
+      "commonPatterns": []
+    },
+    "status-icon": {
+      "validDefault": {
+        "size": "md",
+        "variant": "brand"
+      },
+      "edgeCase": {
+        "size": "md",
+        "variant": "brand"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "switch-base": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isSelected": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isSelected": true
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "isSelected": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "isSelected": true
+          }
+        }
+      ]
+    },
+    "switch-item": {
+      "validDefault": {
+        "size": "md",
+        "hasDescription": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "hasDescription": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "tab-item": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "isSelected": false,
+        "hasIconLeft": false,
+        "hasBadge": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "focused",
+        "isSelected": true,
+        "hasIconLeft": false,
+        "hasBadge": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": [
+        {
+          "scenario": "Unselected",
+          "props": {
+            "size": "md",
+            "state": "default",
+            "isSelected": false,
+            "hasIconLeft": false,
+            "hasBadge": false
+          }
+        },
+        {
+          "scenario": "Selected",
+          "props": {
+            "size": "md",
+            "state": "focused",
+            "isSelected": true,
+            "hasIconLeft": false,
+            "hasBadge": false
+          }
+        }
+      ]
+    },
+    "table": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "table-body": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "table-body-item": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "table-header": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "table-header-item": {
+      "validDefault": {
+        "hasIconRight": false
+      },
+      "edgeCase": {
+        "hasIconRight": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "tag": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "hasIconLeft": false,
+        "hasIconRight": false
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "default",
+        "hasIconLeft": false,
+        "hasIconRight": false
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "toast": {
+      "validDefault": {
+        "variant": "info"
+      },
+      "edgeCase": {
+        "variant": "info"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "tooltip": {
+      "validDefault": {},
+      "edgeCase": {},
+      "invalidCombinations": [],
+      "commonPatterns": []
+    },
+    "tooltip-icon": {
+      "validDefault": {
+        "size": "md",
+        "state": "default",
+        "validation": "none"
+      },
+      "edgeCase": {
+        "size": "md",
+        "state": "default",
+        "validation": "error"
+      },
+      "invalidCombinations": [],
+      "commonPatterns": []
+    }
+  }
+}

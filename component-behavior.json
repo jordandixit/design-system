@@ -1,0 +1,763 @@
+{
+  "meta": {
+    "source": "Generated behavior layer",
+    "globalRules": [
+      "disabled overrides hovered, pressed, focused, selected, and open visual states",
+      "focus ring is additive and uses theme.focus.* tokens",
+      "boolean props affect structure/content rendering; they do not create hidden visual states unless listed below"
+    ]
+  },
+  "patterns": {
+    "interactiveStateMachine": {
+      "pointer": [
+        "default",
+        "hovered",
+        "pressed",
+        "hovered"
+      ],
+      "keyboard": [
+        "default",
+        "focused",
+        "pressed",
+        "focused"
+      ],
+      "disabled": [
+        "disabled"
+      ]
+    },
+    "fieldPattern": {
+      "empty": "isFilled=false",
+      "filled": "isFilled=true",
+      "focus": "state=focused",
+      "open": "isOpen=true for select/combobox/search/datepicker patterns"
+    },
+    "selectionPattern": {
+      "selected": "isSelected=true",
+      "unselected": "isSelected=false"
+    }
+  },
+  "components": {
+    "accordion": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleOpen": "flip isOpen unless disabled",
+        "escape": "set isOpen=false and keep focus on trigger/base"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "aria-expanded mirrors isOpen",
+        "aria-controls references content panel"
+      ],
+      "notes": [
+        "Open panels close on Escape and outside click."
+      ]
+    },
+    "avatar-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "avatar-label": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "badge": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "banner": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "breadcrumb": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "button": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "Use native button semantics when possible"
+      ],
+      "notes": []
+    },
+    "button-icon": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "Use native button semantics when possible"
+      ],
+      "notes": []
+    },
+    "button-icon-menu": {
+      "events": {
+        "toggleOpen": "flip isOpen unless disabled",
+        "escape": "set isOpen=false and keep focus on trigger/base"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "Use native button semantics when possible"
+      ],
+      "notes": [
+        "Open panels close on Escape and outside click."
+      ]
+    },
+    "calendar": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "calendar-date": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "Use native button semantics when possible"
+      ],
+      "notes": []
+    },
+    "card-action": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "card-image": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "checkbox-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "Space toggles checked state",
+        "Tab moves focus"
+      ],
+      "aria": [
+        "role=\"checkbox\"",
+        "aria-checked mirrors isSelected",
+        "aria-disabled when disabled"
+      ],
+      "notes": []
+    },
+    "checkbox-item": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "chip-item": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "Use native button semantics when possible"
+      ],
+      "notes": []
+    },
+    "combobox-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleOpen": "flip isOpen unless disabled",
+        "escape": "set isOpen=false and keep focus on trigger/base"
+      },
+      "keyboard": [
+        "Enter or Space opens panel",
+        "Escape closes panel",
+        "ArrowDown opens panel and moves to next option",
+        "ArrowUp opens panel and moves to previous option"
+      ],
+      "aria": [
+        "aria-expanded mirrors isOpen",
+        "aria-controls references popup/listbox/dialog",
+        "aria-invalid=true when validation=error"
+      ],
+      "notes": [
+        "Open panels close on Escape and outside click."
+      ]
+    },
+    "combobox-field": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "datepicker-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleOpen": "flip isOpen unless disabled",
+        "escape": "set isOpen=false and keep focus on trigger/base"
+      },
+      "keyboard": [
+        "Enter or Space opens panel",
+        "Escape closes panel",
+        "ArrowDown opens panel and moves to next option",
+        "ArrowUp opens panel and moves to previous option"
+      ],
+      "aria": [
+        "aria-expanded mirrors isOpen",
+        "aria-controls references popup/listbox/dialog",
+        "aria-invalid=true when validation=error"
+      ],
+      "notes": [
+        "Open panels close on Escape and outside click."
+      ]
+    },
+    "datepicker-field": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "divider": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "dropdown-item": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "Use native button semantics when possible"
+      ],
+      "notes": []
+    },
+    "dropdown-list": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "dropdown-search": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "Standard text input behavior",
+        "Escape may clear value only if product explicitly enables it"
+      ],
+      "aria": [
+        "aria-invalid=true when validation=error"
+      ],
+      "notes": []
+    },
+    "dropdown-title": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "input-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "Standard text input behavior",
+        "Escape may clear value only if product explicitly enables it"
+      ],
+      "aria": [
+        "aria-invalid=true when validation=error"
+      ],
+      "notes": []
+    },
+    "input-field": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "link": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "Use native <a> when navigating"
+      ],
+      "notes": []
+    },
+    "modal": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "pagination": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "pagination-item": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "Use native button semantics when possible"
+      ],
+      "notes": []
+    },
+    "password-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default"
+      },
+      "keyboard": [
+        "Standard text input behavior",
+        "Escape may clear value only if product explicitly enables it"
+      ],
+      "aria": [
+        "aria-invalid=true when validation=error"
+      ],
+      "notes": []
+    },
+    "password-field": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "progress": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "progress-value": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "radio-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "Arrow keys move between radios in same group",
+        "Space selects focused radio"
+      ],
+      "aria": [
+        "role=\"radio\"",
+        "aria-checked mirrors isSelected",
+        "group wrapped by role=radiogroup"
+      ],
+      "notes": []
+    },
+    "radio-item": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "scrollbar": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "search-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleOpen": "flip isOpen unless disabled",
+        "escape": "set isOpen=false and keep focus on trigger/base"
+      },
+      "keyboard": [
+        "Standard text input behavior",
+        "Escape may clear value only if product explicitly enables it"
+      ],
+      "aria": [
+        "aria-invalid=true when validation=error"
+      ],
+      "notes": [
+        "Open panels close on Escape and outside click."
+      ]
+    },
+    "search-field": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "segemented": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "segmented-item": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "select-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleOpen": "flip isOpen unless disabled",
+        "escape": "set isOpen=false and keep focus on trigger/base"
+      },
+      "keyboard": [
+        "Enter or Space opens panel",
+        "Escape closes panel",
+        "ArrowDown opens panel and moves to next option",
+        "ArrowUp opens panel and moves to previous option"
+      ],
+      "aria": [
+        "aria-expanded mirrors isOpen",
+        "aria-controls references popup/listbox/dialog",
+        "aria-invalid=true when validation=error"
+      ],
+      "notes": [
+        "Open panels close on Escape and outside click."
+      ]
+    },
+    "select-field": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "status-icon": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "switch-base": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "Space toggles on/off",
+        "Enter may toggle if product chooses button semantics"
+      ],
+      "aria": [
+        "role=\"switch\"",
+        "aria-checked mirrors isSelected"
+      ],
+      "notes": []
+    },
+    "switch-item": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "tab-item": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside",
+        "focusVisible": "set state=focused and render focus ring",
+        "blur": "return to default",
+        "toggleSelected": "flip isSelected for multi-select controls; set active choice for single-select controls"
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates for button-like controls"
+      ],
+      "aria": [
+        "role=\"tab\"",
+        "aria-selected mirrors isSelected"
+      ],
+      "notes": []
+    },
+    "table": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "table-body": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "table-body-item": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "table-header": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "table-header-item": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "tag": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside"
+      },
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "toast": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "tooltip": {
+      "events": {},
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    },
+    "tooltip-icon": {
+      "events": {
+        "pointerEnter": "set state=hovered unless disabled",
+        "pointerLeave": "return to default unless focused",
+        "pointerDown": "set state=pressed unless disabled",
+        "pointerUp": "return to hovered if pointer remains inside"
+      },
+      "keyboard": [
+        "No special keyboard behavior beyond nested interactive children"
+      ],
+      "aria": [],
+      "notes": []
+    }
+  }
+}
