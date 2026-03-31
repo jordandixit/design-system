@@ -1,0 +1,1169 @@
+{
+  "meta": {
+    "version": 1,
+    "notes": [
+      "Examples are intended for AI prompting, fixtures, and test coverage."
+    ]
+  },
+  "components": {
+    "accordion": [
+      {
+        "name": "default",
+        "props": {
+          "state": "default",
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "state": "focused",
+          "isOpen": true,
+          "hasIconLeft": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "state": "disabled",
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "avatar-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "contentType": "placeholder",
+          "state": "default",
+          "isInteractive": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "contentType": "placeholder",
+          "state": "focused",
+          "isInteractive": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "contentType": "placeholder",
+          "state": "disabled",
+          "isInteractive": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "avatar-label": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "badge": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "variant": "brand",
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "banner": [
+      {
+        "name": "default",
+        "props": {
+          "variant": "brand",
+          "hasIcon": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "breadcrumb": [
+      {
+        "name": "default",
+        "props": {
+          "contentCount": "1"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "button": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "state": "default",
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "state": "focused",
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "state": "disabled",
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      },
+      {
+        "name": "icon-left-primary",
+        "props": {
+          "size": "md",
+          "variant": "primary",
+          "state": "default",
+          "hasIconLeft": true,
+          "hasIconRight": false
+        },
+        "notes": "Common CTA button."
+      }
+    ],
+    "button-icon": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "state": "default",
+          "hasIcon": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "state": "focused",
+          "hasIcon": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "state": "disabled",
+          "hasIcon": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      },
+      {
+        "name": "icon-only-danger",
+        "props": {
+          "size": "sm",
+          "variant": "danger",
+          "state": "default",
+          "hasIcon": true
+        },
+        "notes": "Requires aria-label."
+      }
+    ],
+    "button-icon-menu": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "isOpen": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "isOpen": true
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      }
+    ],
+    "calendar": [
+      {
+        "name": "default",
+        "props": {},
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "calendar-date": [
+      {
+        "name": "default",
+        "props": {
+          "state": "default",
+          "isSelected": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "state": "focused",
+          "isSelected": true
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "state": "disabled",
+          "isSelected": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "card-action": [
+      {
+        "name": "default",
+        "props": {
+          "state": "default",
+          "hasIconLeft": false,
+          "hasDescription": false,
+          "hasHintText": false,
+          "hasCheckbox": false,
+          "hasRadio": false,
+          "hasSwitch": false,
+          "hasIconRight": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "state": "focused",
+          "hasIconLeft": false,
+          "hasDescription": false,
+          "hasHintText": false,
+          "hasCheckbox": false,
+          "hasRadio": false,
+          "hasSwitch": false,
+          "hasIconRight": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "state": "disabled",
+          "hasIconLeft": false,
+          "hasDescription": false,
+          "hasHintText": false,
+          "hasCheckbox": false,
+          "hasRadio": false,
+          "hasSwitch": false,
+          "hasIconRight": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      },
+      {
+        "name": "selection-row",
+        "props": {
+          "state": "default",
+          "hasCheckbox": true,
+          "hasRadio": false,
+          "hasSwitch": false,
+          "hasDescription": true,
+          "hasHintText": false,
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Use exactly one embedded selection control."
+      }
+    ],
+    "card-image": [
+      {
+        "name": "default",
+        "props": {
+          "state": "default",
+          "hasDescription": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "state": "focused",
+          "hasDescription": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "state": "disabled",
+          "hasDescription": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "checkbox-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "isSelected": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "isSelected": true
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "isSelected": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "checkbox-item": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "hasDescription": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "chip-item": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "isSelected": false,
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "isSelected": true,
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "isSelected": false,
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "combobox-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": true,
+          "hasIconLeft": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "combobox-field": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "isRequired": false,
+          "hasLabel": false,
+          "hasHintText": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "datepicker-base": [
+      {
+        "name": "default",
+        "props": {
+          "state": "default",
+          "isFilled": false,
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "state": "focused",
+          "isFilled": false,
+          "isOpen": true,
+          "hasIconLeft": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "state": "disabled",
+          "isFilled": false,
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "datepicker-field": [
+      {
+        "name": "default",
+        "props": {
+          "isRequired": false,
+          "hasLabel": false,
+          "hasHintText": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "divider": [
+      {
+        "name": "default",
+        "props": {
+          "contentType": "horizontal"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "dropdown-item": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "isSelected": false,
+          "hasIconLeft": false,
+          "hasSwitch": false,
+          "hasCheckbox": false,
+          "hasBadge": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "isSelected": true,
+          "hasIconLeft": false,
+          "hasSwitch": false,
+          "hasCheckbox": false,
+          "hasBadge": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "isSelected": false,
+          "hasIconLeft": false,
+          "hasSwitch": false,
+          "hasCheckbox": false,
+          "hasBadge": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "dropdown-list": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "hasScrollbar": false,
+          "hasTitle": false,
+          "hasSearch": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "dropdown-search": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "isFilled": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "isFilled": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "isFilled": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "dropdown-title": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "input-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "validation": "none",
+          "isFilled": false,
+          "hasIconLeft": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "validation": "none",
+          "isFilled": false,
+          "hasIconLeft": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "validation": "none",
+          "isFilled": false,
+          "hasIconLeft": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "input-field": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "isRequired": false,
+          "hasLabel": false,
+          "hasHintText": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "link": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "contentType": "text",
+          "state": "default"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "contentType": "text",
+          "state": "focused"
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "variant": "primary",
+          "contentType": "text",
+          "state": "disabled"
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "modal": [
+      {
+        "name": "default",
+        "props": {
+          "variant": "info"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "pagination": [
+      {
+        "name": "default",
+        "props": {},
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "pagination-item": [
+      {
+        "name": "default",
+        "props": {
+          "state": "default",
+          "isSelected": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "state": "focused",
+          "isSelected": true
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "state": "disabled",
+          "isSelected": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "password-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "validation": "none",
+          "isFilled": false,
+          "isVisible": false,
+          "hasIconLeft": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "validation": "none",
+          "isFilled": false,
+          "isVisible": false,
+          "hasIconLeft": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "validation": "none",
+          "isFilled": false,
+          "isVisible": false,
+          "hasIconLeft": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "password-field": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "isRequired": false,
+          "hasLabel": false,
+          "hasHintText": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "progress": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "labelPosition": "bottom"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "progress-value": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "radio-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "isSelected": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "isSelected": true
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "isSelected": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "radio-item": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "hasDescription": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "scrollbar": [
+      {
+        "name": "default",
+        "props": {},
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "search-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": true,
+          "hasIconLeft": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "search-field": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "isRequired": false,
+          "hasLabel": false,
+          "hasHintText": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "segemented": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "segmented-item": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "isSelected": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "isSelected": true
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "isSelected": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "select-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": true,
+          "hasIconLeft": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "validation": "none",
+          "isFilled": false,
+          "isOpen": false,
+          "hasIconLeft": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "select-field": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "isRequired": false,
+          "hasLabel": false,
+          "hasHintText": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "required-select",
+        "props": {
+          "size": "md",
+          "isRequired": true,
+          "hasLabel": true,
+          "hasHintText": true
+        },
+        "notes": "Compose with select-base, not search-base, in implementation."
+      }
+    ],
+    "status-icon": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "variant": "brand"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "switch-base": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "isSelected": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "isSelected": true
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "isSelected": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "switch-item": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "hasDescription": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "tab-item": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "isSelected": false,
+          "hasIconLeft": false,
+          "hasBadge": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "interactive",
+        "props": {
+          "size": "lg",
+          "state": "focused",
+          "isSelected": true,
+          "hasIconLeft": false,
+          "hasBadge": false
+        },
+        "notes": "Covers visible focus and open/selected behavior."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "isSelected": false,
+          "hasIconLeft": false,
+          "hasBadge": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "table": [
+      {
+        "name": "default",
+        "props": {},
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "table-body": [
+      {
+        "name": "default",
+        "props": {},
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "table-body-item": [
+      {
+        "name": "default",
+        "props": {
+          "contentType": "checkbox"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "table-header": [
+      {
+        "name": "default",
+        "props": {},
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "table-header-item": [
+      {
+        "name": "default",
+        "props": {
+          "contentType": "checkbox",
+          "hasIconRight": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "tag": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "hasIconLeft": false,
+          "hasIconRight": false
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ],
+    "toast": [
+      {
+        "name": "default",
+        "props": {
+          "variant": "info"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "tooltip": [
+      {
+        "name": "default",
+        "props": {
+          "arrowPosition": "bottom"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      }
+    ],
+    "tooltip-icon": [
+      {
+        "name": "default",
+        "props": {
+          "size": "lg",
+          "state": "default",
+          "validation": "none"
+        },
+        "notes": "Baseline configuration for implementation and snapshot coverage."
+      },
+      {
+        "name": "disabled",
+        "props": {
+          "size": "lg",
+          "state": "disabled",
+          "validation": "none"
+        },
+        "notes": "Disabled overrides all interactive affordances."
+      }
+    ]
+  }
+}

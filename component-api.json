@@ -1,0 +1,3011 @@
+{
+  "meta": {
+    "version": 1,
+    "source": "Generated from repository components.json and tokens.json",
+    "statePriority": [
+      "disabled",
+      "focused",
+      "pressed",
+      "hovered",
+      "default"
+    ],
+    "principles": [
+      "Components consume semantic tokens only.",
+      "Global tokens are for typography and layout.",
+      "Interactive behavior is deterministic and explicit."
+    ]
+  },
+  "components": {
+    "accordion": {
+      "componentType": "disclosure",
+      "props": {
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isOpen": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "When isOpen=true, the component must expose its expanded/open surface and keep focus management deterministic."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "avatar-base": {
+      "componentType": "surface",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "contentType": {
+          "type": "enum",
+          "values": [
+            "placeholder",
+            "initials",
+            "image"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isInteractive": {
+          "type": "boolean"
+        }
+      },
+      "slots": {},
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "contentType=image requires a valid image source; contentType=initials requires 1\u20133 characters."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "avatar-label": {
+      "componentType": "labeled-control",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "avatar-base"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "avatar-base"
+        ]
+      },
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "badge": {
+      "componentType": "status",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "variant": {
+          "type": "enum",
+          "values": [
+            "brand",
+            "neutral",
+            "danger",
+            "success",
+            "warning"
+          ]
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        },
+        "hasIconRight": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "rightIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {
+        "variant": [
+          "brand",
+          "neutral",
+          "danger",
+          "success",
+          "warning"
+        ]
+      },
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "banner": {
+      "componentType": "overlay",
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": [
+            "brand",
+            "neutral",
+            "danger",
+            "success",
+            "warning"
+          ]
+        },
+        "hasIcon": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "icon": {
+          "type": "icon",
+          "optional": true
+        },
+        "title": {
+          "type": "string",
+          "optional": true
+        },
+        "description": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {
+        "variant": [
+          "brand",
+          "neutral",
+          "danger",
+          "success",
+          "warning"
+        ]
+      },
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "breadcrumb": {
+      "componentType": "container",
+      "props": {
+        "contentCount": {
+          "type": "enum",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "+3"
+          ]
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "link"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "link"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "button": {
+      "componentType": "button",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "variant": {
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "ghost",
+            "danger"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        },
+        "hasIconRight": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "rightIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {
+        "variant": [
+          "primary",
+          "secondary",
+          "tertiary",
+          "ghost",
+          "danger"
+        ]
+      },
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "At least one of label, hasIconLeft, or hasIconRight must be present."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "button-icon": {
+      "componentType": "button",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "variant": {
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "ghost",
+            "danger"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "hasIcon": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "icon": {
+          "type": "icon",
+          "optional": true
+        },
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {
+        "variant": [
+          "primary",
+          "secondary",
+          "tertiary",
+          "ghost",
+          "danger"
+        ]
+      },
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "Icon-only buttons require an accessible name via aria-label or aria-labelledby."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "button-icon-menu": {
+      "componentType": "menu-button",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "isOpen": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [
+        "When isOpen=true, the component must expose its expanded/open surface and keep focus management deterministic."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "calendar": {
+      "componentType": "container",
+      "props": {},
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "button-icon",
+            "select-base",
+            "select-base",
+            "button-icon"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "button-icon",
+          "select-base",
+          "select-base",
+          "button-icon"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "calendar-date": {
+      "componentType": "toggle",
+      "props": {
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        }
+      },
+      "slots": {},
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "card-action": {
+      "componentType": "action-row",
+      "props": {
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        },
+        "hasDescription": {
+          "type": "boolean"
+        },
+        "hasHintText": {
+          "type": "boolean"
+        },
+        "hasCheckbox": {
+          "type": "boolean"
+        },
+        "hasRadio": {
+          "type": "boolean"
+        },
+        "hasSwitch": {
+          "type": "boolean"
+        },
+        "hasIconRight": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "checkbox-base",
+            "radio-base",
+            "switch-base"
+          ]
+        },
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "rightIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "Only one of hasCheckbox, hasRadio, or hasSwitch should be true at a time.",
+        "If a selection control is present, the row itself should not introduce a second conflicting selection pattern."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "checkbox-base",
+          "radio-base",
+          "switch-base"
+        ]
+      },
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "card-image": {
+      "componentType": "surface",
+      "props": {
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "hasDescription": {
+          "type": "boolean"
+        }
+      },
+      "slots": {},
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "checkbox-base": {
+      "componentType": "toggle",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        }
+      },
+      "slots": {},
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "checkbox-item": {
+      "componentType": "labeled-control",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "hasDescription": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "checkbox-base"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "checkbox-base"
+        ]
+      },
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "chip-item": {
+      "componentType": "toggle",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        },
+        "hasIconRight": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "rightIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "combobox-base": {
+      "componentType": "text-input",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "validation": {
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        "isFilled": {
+          "type": "boolean"
+        },
+        "isOpen": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "When isOpen=true, the component must expose its expanded/open surface and keep focus management deterministic."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "combobox-field": {
+      "componentType": "field",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "hasLabel": {
+          "type": "boolean"
+        },
+        "hasHintText": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "combobox-base"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "optional": true
+        },
+        "hintText": {
+          "type": "string",
+          "optional": true
+        },
+        "control": {
+          "type": "component",
+          "component": "combobox-base"
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "combobox-base"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "datepicker-base": {
+      "componentType": "text-input",
+      "props": {
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isFilled": {
+          "type": "boolean"
+        },
+        "isOpen": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "calendar"
+          ]
+        },
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "When isOpen=true, the component must expose its expanded/open surface and keep focus management deterministic."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "calendar"
+        ]
+      },
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "datepicker-field": {
+      "componentType": "field",
+      "props": {
+        "isRequired": {
+          "type": "boolean"
+        },
+        "hasLabel": {
+          "type": "boolean"
+        },
+        "hasHintText": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "datepicker-base"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "optional": true
+        },
+        "hintText": {
+          "type": "string",
+          "optional": true
+        },
+        "control": {
+          "type": "component",
+          "component": "datepicker-base"
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "datepicker-base"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "divider": {
+      "componentType": "divider",
+      "props": {
+        "contentType": {
+          "type": "enum",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        }
+      },
+      "slots": {},
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "dropdown-item": {
+      "componentType": "action-row",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        },
+        "hasSwitch": {
+          "type": "boolean"
+        },
+        "hasCheckbox": {
+          "type": "boolean"
+        },
+        "hasBadge": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals.",
+        "Only one of hasSwitch or hasCheckbox should be true at a time.",
+        "hasBadge should not replace the primary label."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "dropdown-list": {
+      "componentType": "container",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "hasScrollbar": {
+          "type": "boolean"
+        },
+        "hasTitle": {
+          "type": "boolean"
+        },
+        "hasSearch": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "dropdown-search",
+            "dropdown-title",
+            "dropdown-item"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "dropdown-search",
+          "dropdown-title",
+          "dropdown-item"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "dropdown-search": {
+      "componentType": "text-input",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isFilled": {
+          "type": "boolean"
+        }
+      },
+      "slots": {},
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "dropdown-title": {
+      "componentType": "container",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        }
+      },
+      "slots": {},
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "input-base": {
+      "componentType": "text-input",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "validation": {
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        "isFilled": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "input-field": {
+      "componentType": "field",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "hasLabel": {
+          "type": "boolean"
+        },
+        "hasHintText": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "input-base"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "optional": true
+        },
+        "hintText": {
+          "type": "string",
+          "optional": true
+        },
+        "control": {
+          "type": "component",
+          "component": "input-base"
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "input-base"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "link": {
+      "componentType": "action-row",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "variant": {
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "error",
+            "success"
+          ]
+        },
+        "contentType": {
+          "type": "enum",
+          "values": [
+            "text",
+            "icon"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        }
+      },
+      "slots": {
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {
+        "variant": [
+          "primary",
+          "secondary",
+          "error",
+          "success"
+        ]
+      },
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "modal": {
+      "componentType": "overlay",
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": [
+            "info",
+            "danger",
+            "success",
+            "warning"
+          ]
+        }
+      },
+      "slots": {
+        "title": {
+          "type": "string",
+          "optional": true
+        },
+        "description": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {
+        "variant": [
+          "info",
+          "danger",
+          "success",
+          "warning"
+        ]
+      },
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "pagination": {
+      "componentType": "container",
+      "props": {},
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "pagination-item"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "pagination-item"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "pagination-item": {
+      "componentType": "toggle",
+      "props": {
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        }
+      },
+      "slots": {},
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "password-base": {
+      "componentType": "text-input",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "validation": {
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        "isFilled": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "password-field": {
+      "componentType": "field",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "hasLabel": {
+          "type": "boolean"
+        },
+        "hasHintText": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "password-base"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "optional": true
+        },
+        "hintText": {
+          "type": "string",
+          "optional": true
+        },
+        "control": {
+          "type": "component",
+          "component": "password-base"
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "password-base"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "progress": {
+      "componentType": "status",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "progressValue": {
+          "type": "enum-number",
+          "values": [
+            0,
+            25,
+            50,
+            75,
+            100
+          ]
+        },
+        "labelPosition": {
+          "type": "enum",
+          "values": [
+            "bottom",
+            "none",
+            "right"
+          ]
+        }
+      },
+      "slots": {},
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "progress-value": {
+      "componentType": "status",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        }
+      },
+      "slots": {},
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "radio-base": {
+      "componentType": "toggle",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        }
+      },
+      "slots": {},
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "radio-item": {
+      "componentType": "labeled-control",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "hasDescription": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "radio-base"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "radio-base"
+        ]
+      },
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "scrollbar": {
+      "componentType": "status",
+      "props": {
+        "progressValue": {
+          "type": "enum-number",
+          "values": [
+            25,
+            50,
+            75
+          ]
+        }
+      },
+      "slots": {},
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "search-base": {
+      "componentType": "text-input",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "validation": {
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        "isFilled": {
+          "type": "boolean"
+        },
+        "isOpen": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "When isOpen=true, the component must expose its expanded/open surface and keep focus management deterministic."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "search-field": {
+      "componentType": "field",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "hasLabel": {
+          "type": "boolean"
+        },
+        "hasHintText": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "search-base"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "optional": true
+        },
+        "hintText": {
+          "type": "string",
+          "optional": true
+        },
+        "control": {
+          "type": "component",
+          "component": "search-base"
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "search-base"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "segemented": {
+      "componentType": "container",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        }
+      },
+      "slots": {},
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [
+        "Component name is preserved from source. Consider renaming to segmented for code exports."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "segmented-item": {
+      "componentType": "toggle",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "select-base": {
+      "componentType": "text-input",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        "validation": {
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        "isFilled": {
+          "type": "boolean"
+        },
+        "isOpen": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "When isOpen=true, the component must expose its expanded/open surface and keep focus management deterministic."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "select-field": {
+      "componentType": "field",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "hasLabel": {
+          "type": "boolean"
+        },
+        "hasHintText": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "search-base"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "optional": true
+        },
+        "hintText": {
+          "type": "string",
+          "optional": true
+        },
+        "control": {
+          "type": "component",
+          "component": "select-base"
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [
+        "select-field should compose select-base; if search behavior is needed, use combobox-field or search-field."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "search-base"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "status-icon": {
+      "componentType": "status",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "variant": {
+          "type": "enum",
+          "values": [
+            "brand",
+            "danger",
+            "warning",
+            "success"
+          ]
+        }
+      },
+      "slots": {},
+      "states": [
+        "default"
+      ],
+      "variants": {
+        "variant": [
+          "brand",
+          "danger",
+          "warning",
+          "success"
+        ]
+      },
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "switch-base": {
+      "componentType": "toggle",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        }
+      },
+      "slots": {},
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "switch-item": {
+      "componentType": "labeled-control",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "hasDescription": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "switch-base"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "switch-base"
+        ]
+      },
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "tab-item": {
+      "componentType": "toggle",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        "isSelected": {
+          "type": "boolean"
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        },
+        "hasBadge": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "isSelected only changes selection semantics; disabled still overrides selected visuals."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": true
+      }
+    },
+    "table": {
+      "componentType": "table",
+      "props": {},
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "table-header",
+            "table-body"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "table-header",
+          "table-body"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "table-body": {
+      "componentType": "table",
+      "props": {},
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "table-body-item"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "table-body-item"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "table-body-item": {
+      "componentType": "table",
+      "props": {
+        "contentType": {
+          "type": "enum",
+          "values": [
+            "checkbox",
+            "title",
+            "empty"
+          ]
+        }
+      },
+      "slots": {},
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "table-header": {
+      "componentType": "table",
+      "props": {},
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "table-header-item"
+          ]
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "table-header-item"
+        ]
+      },
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "table-header-item": {
+      "componentType": "table",
+      "props": {
+        "contentType": {
+          "type": "enum",
+          "values": [
+            "checkbox",
+            "title",
+            "empty"
+          ]
+        },
+        "hasIconRight": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "rightIcon": {
+          "type": "icon",
+          "optional": true
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": false,
+        "requiresVisibleFocus": false
+      }
+    },
+    "tag": {
+      "componentType": "action-row",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "disabled"
+          ]
+        },
+        "hasIconLeft": {
+          "type": "boolean"
+        },
+        "hasIconRight": {
+          "type": "boolean"
+        }
+      },
+      "slots": {
+        "leftIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "rightIcon": {
+          "type": "icon",
+          "optional": true
+        },
+        "label": {
+          "type": "string",
+          "optional": false
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "toast": {
+      "componentType": "overlay",
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": [
+            "info",
+            "danger",
+            "warning",
+            "success"
+          ]
+        }
+      },
+      "slots": {
+        "title": {
+          "type": "string",
+          "optional": true
+        },
+        "description": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {
+        "variant": [
+          "info",
+          "danger",
+          "warning",
+          "success"
+        ]
+      },
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "tooltip": {
+      "componentType": "overlay",
+      "props": {
+        "arrowPosition": {
+          "type": "enum",
+          "values": [
+            "bottom",
+            "left",
+            "top",
+            "right"
+          ]
+        }
+      },
+      "slots": {
+        "title": {
+          "type": "string",
+          "optional": true
+        },
+        "description": {
+          "type": "string",
+          "optional": true
+        }
+      },
+      "states": [
+        "default"
+      ],
+      "variants": {},
+      "constraints": [],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {},
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    },
+    "tooltip-icon": {
+      "componentType": "overlay",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        "state": {
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "disabled"
+          ]
+        },
+        "validation": {
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        }
+      },
+      "slots": {
+        "nestedInstances": {
+          "type": "component",
+          "component": [
+            "tooltip"
+          ]
+        }
+      },
+      "states": [
+        "default",
+        "hovered",
+        "pressed",
+        "disabled"
+      ],
+      "variants": {},
+      "constraints": [
+        "When state=disabled, interactive states and focus ring are suppressed.",
+        "Tooltip must not be the only way to expose critical information."
+      ],
+      "statePriority": [
+        "disabled",
+        "focused",
+        "pressed",
+        "hovered",
+        "default"
+      ],
+      "composition": {
+        "nestedInstances": [
+          "tooltip"
+        ]
+      },
+      "a11y": {
+        "focusable": true,
+        "requiresVisibleFocus": false
+      }
+    }
+  }
+}

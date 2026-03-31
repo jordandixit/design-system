@@ -1,0 +1,1145 @@
+{
+  "meta": {
+    "version": 1,
+    "notes": [
+      "Behavior rules complement the visual API and are intended for implementation without reopening Figma.",
+      "Keyboard interaction follows common WAI-ARIA authoring patterns adapted to the component names in this system."
+    ]
+  },
+  "components": {
+    "accordion": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Enter or Space toggles disclosure"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use aria-expanded",
+        "Use aria-controls to bind trigger and panel"
+      ],
+      "stateTransitions": [
+        "isOpen toggles panel visibility",
+        "focused shows focus ring",
+        "disabled suppresses toggle"
+      ]
+    },
+    "avatar-base": {
+      "role": null,
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "avatar-label": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "badge": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "banner": {
+      "role": "region",
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "breadcrumb": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "button": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates button-like controls"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Provide accessible name",
+        "Reflect disabled state with disabled or aria-disabled"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup depending on focus retention",
+        "any -> disabled when unavailable"
+      ]
+    },
+    "button-icon": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates button-like controls"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Provide accessible name",
+        "Reflect disabled state with disabled or aria-disabled",
+        "Icon-only variant requires aria-label"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup depending on focus retention",
+        "any -> disabled when unavailable"
+      ]
+    },
+    "button-icon-menu": {
+      "role": "button",
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates button-like controls",
+        "ArrowDown opens menu and moves focus to first item",
+        "Escape closes menu and returns focus to trigger"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [
+        "Provide accessible name",
+        "Reflect disabled state with disabled or aria-disabled",
+        "Use aria-haspopup=\"menu\"",
+        "Use aria-expanded when isOpen changes",
+        "Use aria-controls to bind popup"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup depending on focus retention",
+        "any -> disabled when unavailable"
+      ]
+    },
+    "calendar": {
+      "role": "grid",
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [
+        "Arrow keys move day focus",
+        "PageUp/PageDown change month",
+        "Home/End move within week",
+        "Enter/Space select date"
+      ],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [
+        "Use grid semantics for calendar surface"
+      ],
+      "stateTransitions": []
+    },
+    "calendar-date": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter or Space activates"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Expose selected state with aria-pressed or aria-selected depending on parent pattern"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup",
+        "selected toggles on activation",
+        "disabled suppresses all transitions"
+      ]
+    },
+    "card-action": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates button-like controls"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Provide accessible name",
+        "Reflect disabled state with disabled or aria-disabled"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup depending on focus retention",
+        "any -> disabled when unavailable"
+      ]
+    },
+    "card-image": {
+      "role": null,
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "checkbox-base": {
+      "role": "checkbox",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Space toggles selected state"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use checked state via checked or aria-checked"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup",
+        "selected toggles on activation",
+        "disabled suppresses all transitions"
+      ]
+    },
+    "checkbox-item": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "chip-item": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter or Space activates"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Expose selected state with aria-pressed or aria-selected depending on parent pattern"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup",
+        "selected toggles on activation",
+        "disabled suppresses all transitions"
+      ]
+    },
+    "combobox-base": {
+      "role": "combobox",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Tab moves focus",
+        "Typing updates value",
+        "Escape closes popup surfaces when applicable",
+        "Arrow keys navigate listbox when popup is open"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use associated label or aria-label",
+        "Use aria-invalid when validation is error",
+        "Use aria-describedby for hint or validation text",
+        "Use aria-expanded",
+        "Use aria-controls",
+        "Use aria-autocomplete when filtering"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "default/hovered -> focused on focusin",
+        "focused -> default on blur unless value/popup state requires alternate rendering",
+        "focused + input -> filled=true"
+      ],
+      "openClose": {
+        "trigger": "focus, click, or explicit toggle",
+        "close": "Escape, outside click, blur with managed exceptions, selection commit",
+        "popupRole": "listbox/dialog for datepicker depending on control"
+      }
+    },
+    "combobox-field": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "datepicker-base": {
+      "role": "combobox",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Tab moves focus",
+        "Typing updates value",
+        "Escape closes popup surfaces when applicable",
+        "Arrow keys navigate listbox when popup is open"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use associated label or aria-label",
+        "Use aria-invalid when validation is error",
+        "Use aria-describedby for hint or validation text",
+        "Use aria-haspopup=\"dialog\" or \"grid\" depending on calendar implementation",
+        "Use aria-expanded"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "default/hovered -> focused on focusin",
+        "focused -> default on blur unless value/popup state requires alternate rendering",
+        "focused + input -> filled=true"
+      ],
+      "openClose": {
+        "trigger": "focus, click, or explicit toggle",
+        "close": "Escape, outside click, blur with managed exceptions, selection commit",
+        "popupRole": "listbox/dialog for datepicker depending on control"
+      }
+    },
+    "datepicker-field": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "divider": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "dropdown-item": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates button-like controls"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Provide accessible name",
+        "Reflect disabled state with disabled or aria-disabled"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup depending on focus retention",
+        "any -> disabled when unavailable"
+      ]
+    },
+    "dropdown-list": {
+      "role": "listbox",
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [
+        "ArrowDown/ArrowUp move active option",
+        "Enter commits selection",
+        "Escape closes popup"
+      ],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [
+        "Use role=\"listbox\" or menu depending on trigger semantics",
+        "Items expose option or menuitem roles"
+      ],
+      "stateTransitions": []
+    },
+    "dropdown-search": {
+      "role": "textbox",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Tab moves focus",
+        "Typing updates value",
+        "Escape closes popup surfaces when applicable",
+        "Arrow keys navigate listbox when popup is open"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use associated label or aria-label",
+        "Use aria-invalid when validation is error",
+        "Use aria-describedby for hint or validation text"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "default/hovered -> focused on focusin",
+        "focused -> default on blur unless value/popup state requires alternate rendering",
+        "focused + input -> filled=true"
+      ]
+    },
+    "dropdown-title": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "input-base": {
+      "role": "textbox",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Tab moves focus",
+        "Typing updates value",
+        "Escape closes popup surfaces when applicable",
+        "Arrow keys navigate listbox when popup is open"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use associated label or aria-label",
+        "Use aria-invalid when validation is error",
+        "Use aria-describedby for hint or validation text"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "default/hovered -> focused on focusin",
+        "focused -> default on blur unless value/popup state requires alternate rendering",
+        "focused + input -> filled=true"
+      ]
+    },
+    "input-field": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "link": {
+      "role": "link",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates button-like controls"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Provide accessible name",
+        "Reflect disabled state with disabled or aria-disabled"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup depending on focus retention",
+        "any -> disabled when unavailable"
+      ]
+    },
+    "modal": {
+      "role": "dialog",
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [
+        "Escape closes modal if dismissible",
+        "Tab traps focus within dialog",
+        "Shift+Tab loops backwards within dialog"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [
+        "Use role=\"dialog\" or alertdialog",
+        "Use aria-modal=\"true\"",
+        "Provide labelledby and describedby"
+      ],
+      "stateTransitions": [],
+      "openClose": {
+        "trigger": "explicit action only",
+        "close": "dismiss action, Escape if allowed, outside click only if non-destructive"
+      }
+    },
+    "pagination": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "pagination-item": {
+      "role": "link",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter activates page link"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Set aria-current=\"page\" for selected item"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup",
+        "selected toggles on activation",
+        "disabled suppresses all transitions"
+      ]
+    },
+    "password-base": {
+      "role": "textbox",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Tab moves focus",
+        "Typing updates value",
+        "Escape closes popup surfaces when applicable",
+        "Arrow keys navigate listbox when popup is open"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use associated label or aria-label",
+        "Use aria-invalid when validation is error",
+        "Use aria-describedby for hint or validation text"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "default/hovered -> focused on focusin",
+        "focused -> default on blur unless value/popup state requires alternate rendering",
+        "focused + input -> filled=true"
+      ]
+    },
+    "password-field": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "progress": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "progress-value": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "radio-base": {
+      "role": "radio",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Arrow keys move within radio group",
+        "Space selects current radio"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use aria-checked",
+        "Parent group should expose radiogroup"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup",
+        "selected toggles on activation",
+        "disabled suppresses all transitions"
+      ]
+    },
+    "radio-item": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "scrollbar": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "search-base": {
+      "role": "textbox",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Tab moves focus",
+        "Typing updates value",
+        "Escape closes popup surfaces when applicable",
+        "Arrow keys navigate listbox when popup is open"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use associated label or aria-label",
+        "Use aria-invalid when validation is error",
+        "Use aria-describedby for hint or validation text"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "default/hovered -> focused on focusin",
+        "focused -> default on blur unless value/popup state requires alternate rendering",
+        "focused + input -> filled=true"
+      ],
+      "openClose": {
+        "trigger": "focus, click, or explicit toggle",
+        "close": "Escape, outside click, blur with managed exceptions, selection commit",
+        "popupRole": "listbox/dialog for datepicker depending on control"
+      }
+    },
+    "search-field": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "segemented": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "segmented-item": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter or Space activates"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Expose selected state with aria-pressed or aria-selected depending on parent pattern"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup",
+        "selected toggles on activation",
+        "disabled suppresses all transitions"
+      ]
+    },
+    "select-base": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": false
+      },
+      "keyboard": [
+        "Tab moves focus",
+        "Typing updates value",
+        "Escape closes popup surfaces when applicable",
+        "Arrow keys navigate listbox when popup is open"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use associated label or aria-label",
+        "Use aria-invalid when validation is error",
+        "Use aria-describedby for hint or validation text",
+        "Use aria-haspopup=\"listbox\"",
+        "Use aria-expanded",
+        "Use aria-controls"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "default/hovered -> focused on focusin",
+        "focused -> default on blur unless value/popup state requires alternate rendering",
+        "focused + input -> filled=true"
+      ],
+      "openClose": {
+        "trigger": "focus, click, or explicit toggle",
+        "close": "Escape, outside click, blur with managed exceptions, selection commit",
+        "popupRole": "listbox/dialog for datepicker depending on control"
+      }
+    },
+    "select-field": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "status-icon": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "switch-base": {
+      "role": "switch",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Space toggles switch"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use checked state via aria-checked"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup",
+        "selected toggles on activation",
+        "disabled suppresses all transitions"
+      ]
+    },
+    "switch-item": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "tab-item": {
+      "role": "tab",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Arrow keys move between tabs",
+        "Enter or Space activates tab depending on activation model"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": true
+      },
+      "aria": [
+        "Use aria-selected",
+        "Bind tab to tabpanel via aria-controls/id"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup",
+        "selected toggles on activation",
+        "disabled suppresses all transitions"
+      ]
+    },
+    "table": {
+      "role": "table",
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "table-body": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "table-body-item": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "table-header": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "table-header-item": {
+      "role": null,
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": false,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    },
+    "tag": {
+      "role": "button",
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [
+        "Enter activates",
+        "Space activates button-like controls"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [
+        "Provide accessible name",
+        "Reflect disabled state with disabled or aria-disabled"
+      ],
+      "stateTransitions": [
+        "default -> hovered on pointerenter",
+        "hovered -> pressed on pointerdown",
+        "pressed -> focused or default on pointerup depending on focus retention",
+        "any -> disabled when unavailable"
+      ]
+    },
+    "toast": {
+      "role": "status",
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [
+        "Use role=\"status\" or alert depending on urgency",
+        "Do not steal focus automatically"
+      ],
+      "stateTransitions": []
+    },
+    "tooltip": {
+      "role": "tooltip",
+      "pointer": {
+        "hoverable": false,
+        "pressable": false
+      },
+      "keyboard": [
+        "Escape dismisses tooltip"
+      ],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [
+        "Bind trigger with aria-describedby",
+        "Tooltip content should not contain interactive controls"
+      ],
+      "stateTransitions": []
+    },
+    "tooltip-icon": {
+      "role": null,
+      "pointer": {
+        "hoverable": true,
+        "pressable": true
+      },
+      "keyboard": [],
+      "focus": {
+        "focusable": true,
+        "visible": false
+      },
+      "aria": [],
+      "stateTransitions": []
+    }
+  }
+}
