@@ -1,361 +1,325 @@
-# AI Implementation Guide — Design System
+# Design System
 
-## 1. Purpose
+This repository contains a complete, production-ready Design System designed to be:
 
-This document explains how to use the Design System files to generate UI components **without ambiguity**.
-
-You must strictly follow the structure and rules defined here.
-
----
-
-## 2. Source Files
-
-You are provided with the following files:
-
-### Core Files
-
-* `tokens.json`
-* `component-api.json`
-* `component-mapping.json`
-* `component-behavior.json`
-* `component-examples.json`
+* Developer-friendly (clear API, deterministic behavior)
+* AI-consumable (no ambiguity, strict naming, structured data)
+* Scalable (SaaS desktop-first architecture)
 
 ---
 
-## 3. System Architecture
+# 🧱 Architecture Overview
 
-The system follows a strict dependency chain:
+The Design System follows a strict layered architecture:
 
-```txt
-_root → global → theme → mapping → components → UI
+```
+_root (Primitives)
+   ↓
+global (Semantic - non-color)
+   ↓
+theme (Semantic - color)
+   ↓
+components
+   ↓
+UI
 ```
 
 ---
 
-## 4. Token Usage Rules
+## 1. `_root` (Primitives)
 
-### 4.1 Token Layers
-
-#### `_root` (Primitives)
-
-* Raw values (colors, spacing, typography)
-* NEVER use directly in UI
-
-#### `global`
-
-* Layout and typography
-* Used for spacing, grid, font styles
-
-#### `theme`
-
-* UI styling tokens
-* ONLY source for:
-
-  * background
-  * text
-  * icon
-  * border
-  * focus
-  * elevation
-
----
-
-### 4.2 Mandatory Rule
-
-```txt
-UI MUST use only theme.* tokens
-```
-
----
-
-### 4.3 Mode Handling
-
-Tokens define:
-
-```json
-{
-  "light": "...",
-  "dark": "..."
-}
-```
-
-You must:
-
-* support both modes
-* never hardcode colors
-
----
-
-## 5. Component Generation Process
-
-You must follow this exact order:
-
----
-
-### Step 1 — Read component API
-
-From `component-api.json`:
-
-* identify props
-* identify variants
-* identify states
-* identify slots (children)
-
----
-
-### Step 2 — Apply mapping
-
-From `component-mapping.json`:
-
-* map tokens to:
-
-  * background
-  * text
-  * border
-  * icon
-  * elevation
-  * focus
-
-For each:
-
-* variant
-* state
-
----
-
-### Step 3 — Apply behavior
-
-From `component-behavior.json`:
-
-* state transitions
-* interaction logic
-* keyboard handling
-* accessibility rules
-
----
-
-### Step 4 — Validate with examples
-
-From `component-examples.json`:
-
-* ensure valid combinations
-* avoid invalid states
-* replicate real patterns
-
----
-
-## 6. State System
-
-### 6.1 Available States
-
-```txt
-default
-hovered
-pressed
-focused
-disabled
-```
-
----
-
-### 6.2 State Priority
-
-```txt
-disabled > focused > pressed > hovered > default
-```
-
----
-
-### 6.3 Rules
-
-* Disabled overrides all states
-* Focus always includes a ring (focus token)
-* Hover and pressed must not be simulated
-
----
-
-## 7. Component Structure
-
-### 7.1 Base Pattern
-
-Each component must:
-
-* use props from `component-api.json`
-* render slots properly
-* apply tokens from mapping
-
----
-
-### 7.2 Composition
-
-Some components are composed:
-
-```txt
-input-field → input-base
-combobox-field → combobox-base
-select-field → select-base
-```
-
----
-
-## 8. Styling Rules
-
-### 8.1 Mandatory
-
-* Use tokens only
-* No inline values
-* No hardcoded colors
-* No manual opacity
-
----
-
-### 8.2 Forbidden
-
-* ❌ Using `_root` directly
-* ❌ Creating new tokens
-* ❌ Inferring missing styles
-* ❌ Modifying colors manually
-
----
-
-## 9. Interaction Rules
-
-### 9.1 Hover
-
-* triggered on pointer hover
-* uses `hovered` state tokens
-
----
-
-### 9.2 Pressed
-
-* triggered on pointer down
-* uses `pressed` state tokens
-
----
-
-### 9.3 Focus
-
-* triggered on keyboard navigation
-* must display focus ring
-
----
-
-### 9.4 Disabled
-
-* blocks all interaction
-* overrides all visual states
-
----
-
-## 10. Accessibility Rules
-
-You must:
-
-* use semantic HTML elements
-* support keyboard navigation
-* ensure visible focus
-* use ARIA when needed
+Raw, non-semantic values.
 
 Examples:
 
-* button → `<button>`
-* input → `<input>`
-* combobox → ARIA combobox pattern
+* Colors (grayscale, brand, success, danger, etc.)
+* Numbers (spacing, radius, sizes)
+
+❗ Never used directly in components.
 
 ---
 
-## 11. Behavior Rules
+## 2. `global` (Semantic – Structure)
 
-From `component-behavior.json`:
+Non-color semantic tokens.
 
-* define open/close logic
-* manage internal states
-* synchronize UI and interaction
+Includes:
 
----
+* Typography (font, size, weight, line-height)
+* Layout (spacing, padding, gap)
+* Radius
+* Elevation (shadow)
+* Grid
 
-## 12. Validation Rules
-
-Before generating code, ensure:
-
-* all props are valid
-* no invalid combinations
-* mapping exists for all states
-* behavior is defined
+Used to define structure and layout.
 
 ---
 
-## 13. Output Requirements
+## 3. `theme` (Semantic – Color)
 
-You must generate:
+Color tokens used by components.
 
-* React components
-* TypeScript types
-* Token-based styling
-* Accessible interactions
+### Naming convention
+
+```
+theme.[category].[type].[variant].[state]
+```
+
+Examples:
+
+* `theme.background.state.neutral.faint.default`
+* `theme.text.state.brand.bolder.hovered`
+* `theme.border.state.danger.moderate.default`
 
 ---
 
-## 14. Error Handling
+## 4. Components
 
-If something is missing:
+Components are defined in `components.json`.
 
-```txt
-DO NOT GUESS
-ASK FOR CLARIFICATION
+Each component includes:
+
+* props (variants, states, booleans)
+* composition (nested instances)
+* structural rules
+
+---
+
+# 🧩 Component Model
+
+## Component Types
+
+### Base
+
+Core interactive element
+Example: `input-base`, `button`
+
+### Field
+
+Wrapper for label + hint + validation
+Example: `input-field`, `select-field`
+
+### Item
+
+Reusable list element
+Example: `dropdown-item`, `radio-item`
+
+---
+
+## Props Types
+
+### Enum
+
+```json
+"size": ["sm", "md", "lg"]
+```
+
+### Boolean
+
+```json
+"isOpen": true | false
+```
+
+### State
+
+```json
+"default", "hovered", "pressed", "focused", "disabled"
 ```
 
 ---
 
-## 15. Final Rule
+## Global State Rules
 
-This system is deterministic.
+* `disabled` overrides ALL states
+* `focused` uses focus tokens (ring)
+* `hovered` and `pressed` are pointer states
+* `isOpen` is NOT a visual state, but a structural one
 
-```txt
-No visual or behavioral decision should be inferred.
+---
+
+# 🎨 Styling System
+
+## Golden Rule
+
+👉 Components ONLY use `theme` tokens
+❌ Never use `_root` directly
+
+---
+
+## Token Mapping
+
+Defined in:
+
+```
+component-mapping.json
 ```
 
-Every UI element must be:
+Each component maps:
 
-```txt
-Token → Mapping → Component → UI
+* background
+* text
+* border
+* icon
+* elevation
+* focus
+
+Example:
+
+```json
+"button": {
+  "primary": {
+    "default": {
+      "background": "theme.background.state.brand.medium.default",
+      "text": "theme.text.state.brand.bolder.default"
+    }
+  }
+}
 ```
 
 ---
 
-## 16. Example Workflow
+# ⚙️ Component API
 
-```txt
-Generate Button:
+Defined in:
 
-1. Read Button API
-2. Identify variant + state
-3. Apply mapping tokens
-4. Apply behavior rules
-5. Validate with examples
-6. Generate component
+```
+component-api.json
 ```
 
----
+Includes:
 
-## 17. Summary
-
-To build components:
-
-* Follow the token hierarchy
-* Use mapping for styling
-* Use API for structure
-* Use behavior for interaction
-* Use examples for validation
+* props
+* slots
+* constraints
+* accessibility roles
 
 ---
 
-This ensures:
+# 🔁 Behavior & Interactions
 
-* consistency
-* scalability
-* AI reliability
-* production readiness
+Defined in:
+
+```
+component-behavior.json
+```
+
+Includes:
+
+* state transitions
+* keyboard interactions
+* accessibility rules
+* open/close logic
 
 ---
+
+# 📏 Rules & Usage
+
+Defined in:
+
+```
+component-rules.md
+```
+
+Includes:
+
+* when to use
+* when NOT to use
+* best practices
+* anti-patterns
+
+---
+
+# 🧪 Examples
+
+Defined in:
+
+```
+component-examples.json
+```
+
+Includes:
+
+* valid combinations
+* edge cases
+* invalid states
+* real UI scenarios
+
+---
+
+# 🎯 Design Principles
+
+## 1. Deterministic System
+
+No ambiguity. Every state and behavior is defined.
+
+## 2. Token-Driven
+
+All UI is driven by semantic tokens.
+
+## 3. Scalable
+
+Works for large SaaS products.
+
+## 4. AI-Compatible
+
+Structured for automated UI generation.
+
+---
+
+# ♿ Accessibility
+
+* All interactive components support keyboard navigation
+* Focus is always visible (focus ring)
+* ARIA roles defined in `component-api.json`
+* Validation must not rely on color only
+
+---
+
+# 🔧 Implementation Guidelines
+
+## For Developers
+
+* Do not hardcode values
+* Always use tokens
+* Respect state priority
+* Follow component API strictly
+
+---
+
+## For AI Systems
+
+* Use `component-api.json` as source of truth
+* Use `component-mapping.json` for styling
+* Use `component-behavior.json` for logic
+* Use `component-examples.json` for generation
+
+---
+
+# 🚀 Final Goal
+
+This Design System guarantees:
+
+* Visual consistency
+* Behavioral consistency
+* Predictable implementation
+* Zero ambiguity for AI and developers
+
+---
+
+# 📌 Notes
+
+* Figma is the visual source of truth
+* This repository is the implementation source of truth
+* Both must stay aligned
+
+---
+
+# 🧠 Summary
+
+This is not just a UI kit.
+
+This is a **complete implementation contract** between:
+
+* Design
+* Development
+* AI systems
