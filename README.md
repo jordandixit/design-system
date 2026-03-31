@@ -2,25 +2,17 @@
 
 ## 1. Overview
 
-This design system is built for **scalable product development and AI-driven implementation**.
+This design system is built for **scalable UI development and AI-driven implementation**.
 
-It enforces a strict architecture:
+It follows a strict multi-layer architecture:
 
 ```
 _root (Primitives)
-→ global (Semantic tokens: typography, spacing, layout, elevation)
+→ global (Semantic tokens: typography, layout, spacing, shadow)
 → theme (Semantic tokens: UI colors, states, interactions)
 → components
 → UI
 ```
-
-### Core Principles
-
-* Single source of truth via tokens
-* No hardcoded values
-* Strict naming and hierarchy
-* Explicit rules (no assumptions)
-* Designed for programmatic consumption (AI-ready)
 
 ---
 
@@ -28,45 +20,67 @@ _root (Primitives)
 
 ### 2.1 Root (Primitives)
 
-* Contains raw values (colors, alpha, spacing, etc.)
+Defined in 
+
+* Contains all raw values:
+
+  * colors
+  * alpha
+  * typography base values
+  * spacing
+  * sizing
+  * radius
+  * grid
 * Prefixed with `_root.*`
-* Never used directly in UI
+* **Never used directly in UI**
 
 Example:
 
 ```
-_root.color.neutral.100
-_root.color.brand.500
-_root.alpha.neutral.050
+_root.color.neutral.500
+_root.alpha.brand.200
+_root.space.16
+_root.radius.8
 ```
 
 ---
 
 ### 2.2 Global Tokens
 
-* Semantic tokens for **structure and layout**
-* Includes:
+Defined in 
 
-  * Typography
-  * Spacing
-  * Layout
-  * Elevation (shadow)
+Used for **structure and layout only**:
 
-👉 Not tied to interaction states
+* Typography (font, size, weight, leading, tracking)
+* Layout (grid, spacing, padding, gap)
+* Radius, border width
+* Shadow primitives
+
+👉 These tokens map directly to `_root`
+
+Example:
+
+```
+global.font.size.heading.h1 → _root.font.size.48
+global.layout.padding.md → _root.space.8
+```
+
+👉 Global tokens are **not state-based**
 
 ---
 
 ### 2.3 Theme Tokens
 
-* Semantic tokens used in UI
-* Covers:
+Defined in `theme.json`
 
-  * background
-  * text
-  * icon
-  * border
-  * elevation
-  * focus
+Used for **UI rendering only**:
+
+* background
+* text
+* icon
+* border
+* elevation
+* focus
 
 👉 All UI must use `theme.*` tokens
 
@@ -76,12 +90,12 @@ _root.alpha.neutral.050
 
 ### 3.1 Modes
 
-The system supports:
+Each token supports:
 
 * Light mode
 * Dark mode
 
-Each token defines both values:
+Structure:
 
 ```
 {
@@ -93,8 +107,6 @@ Each token defines both values:
 ---
 
 ### 3.2 Variants
-
-Available variants:
 
 ```
 neutral
@@ -108,7 +120,7 @@ success
 
 ### 3.3 Intensity Scale
 
-Each variant follows a consistent scale:
+Each variant follows:
 
 ```
 faint → lighter → medium → moderate → bolder → strong
@@ -124,13 +136,13 @@ theme.background.state.brand.medium.default
 
 ### 3.4 Fixed Tokens
 
-Some tokens are identical across modes:
+Some tokens are mode-independent:
 
 ```
 theme.text.global.neutral.fixed
 ```
 
-👉 These must not change between light and dark
+👉 Same value in light and dark
 
 ---
 
@@ -150,8 +162,6 @@ disabled
 
 ### 4.2 Token Structure
 
-States are defined as:
-
 ```
 theme.[category].state.[variant].[intensity].[state]
 ```
@@ -166,7 +176,7 @@ theme.background.state.neutral.faint.hovered
 
 ### 4.3 Shared States
 
-Shared states apply globally:
+Global states:
 
 ```
 theme.background.state.shared.disabled
@@ -181,13 +191,18 @@ theme.icon.state.shared.disabled
 ### 5.1 Hover / Pressed
 
 * Always use state tokens
-* Never simulate with opacity or color manipulation
+* Never use opacity or manual color changes
 
 ---
 
 ### 5.2 Focus
 
-Focus is handled using dedicated tokens:
+Focus is handled via tokens + effects:
+
+* Tokens: `theme.focus.*`
+* Effects: defined in styles
+
+Structure:
 
 ```
 theme.focus.[variant].inner
@@ -196,15 +211,15 @@ theme.focus.[variant].offset
 
 Rendering:
 
-* Dual ring system (inner + offset)
-* No background modification
+* dual ring (inner + offset)
+* no background override
 
 ---
 
 ### 5.3 Disabled
 
-* Overrides all other states
-* Uses shared disabled tokens
+* Overrides all states
+* Uses shared tokens
 
 ---
 
@@ -229,8 +244,8 @@ Plus:
 
 ### 6.2 State Logic
 
-* `state` controls visual appearance
-* Interaction maps to state
+* `state` = visual representation
+* interaction → maps to state
 * `focused` always uses focus tokens
 
 ---
@@ -243,16 +258,15 @@ Components are composable:
 input-field → input-base
 combobox-field → combobox-base
 select-field → select-base
+datepicker-field → datepicker-base
 ```
 
-👉 Field = structure (label, hint, etc.)
-👉 Base = interactive element
+👉 Field = structure (label, hint)
+👉 Base = interaction
 
 ---
 
 ### 6.4 Behavioral Flags
-
-Common flags:
 
 ```
 isSelected
@@ -268,44 +282,26 @@ isInteractive
 
 ## 7. Typography System
 
-Structure:
+Based on global tokens:
 
 ```
-text.heading (h1 → h4)
-text.content.lead
-text.content.emphasis
-text.content.base
-text.content.subtle
-text.content.caption
+heading → h1, h2, h3, h4
+content → lead, emphasis, base, subtle, caption
 ```
 
 Properties:
 
 * Font: Inter
-* Weights: 400 → 700
-* Sizes: 12px → 48px
-* Consistent line-height scale
+* Weight: 400 → 700
+* Size: 12px → 48px
+* Line-height from `_root.font.leading`
+* Tracking from `_root.font.tracking`
 
 ---
 
-## 8. Elevation System
+## 8. Layout System
 
-Levels:
-
-```
-elevation.sm
-elevation.md
-elevation.lg
-```
-
-* Implemented via box-shadow
-* Defined in tokens and effect styles
-
----
-
-## 9. Layout System
-
-Grid system:
+Grid:
 
 ```
 lg → 12 columns
@@ -315,8 +311,27 @@ sm → 4 columns
 
 Includes:
 
-* gutters
-* margins
+* margin
+* gutter
+* padding
+* gap
+
+---
+
+## 9. Elevation System
+
+Based on:
+
+* global shadow tokens
+* theme elevation tokens
+
+Levels:
+
+```
+elevation.sm
+elevation.md
+elevation.lg
+```
 
 ---
 
@@ -324,11 +339,11 @@ Includes:
 
 ### MUST
 
-* Use only `theme.*` tokens
-* Respect naming conventions strictly
+* Use ONLY `theme.*` tokens in UI
+* Use `global.*` for layout and typography
+* Respect naming structure exactly
 * Use predefined states only
-* Use focus tokens for focus state
-* Use effect styles for elevation and focus
+* Use focus tokens for focus
 
 ---
 
@@ -336,9 +351,9 @@ Includes:
 
 * ❌ Use `_root` tokens in UI
 * ❌ Hardcode values
-* ❌ Create new states
-* ❌ Infer missing tokens
-* ❌ Modify colors manually
+* ❌ Create new tokens
+* ❌ Infer missing values
+* ❌ Apply manual color transformations
 
 ---
 
@@ -346,39 +361,37 @@ Includes:
 
 When generating code:
 
-1. Always map UI → theme tokens
-2. Never guess missing values → ask instead
-3. Respect component API strictly
-4. Prefer composition over duplication
-5. Ensure accessibility (ARIA, focus visibility)
+1. Use `theme.*` for UI styling
+2. Use `global.*` for layout and typography
+3. Never resolve `_root` manually
+4. Never guess missing tokens → ask
+5. Respect component API strictly
+6. Prefer composition over duplication
+7. Ensure accessibility (ARIA, focus visible)
+
 
 ---
 
-## 12. Expected Output
+## 12. Development Workflow
 
-The system is designed to generate:
+1. `_root` = raw values
+2. `global` = layout & typography
+3. `theme` = UI styling
+4. `components` = API contract
 
-* React components
-* TypeScript interfaces
-* Tailwind-compatible styles
-* Accessible UI (WCAG compliant)
+👉 Always follow this chain:
 
----
-
-## 13. Development Workflow
-
-1. Use `tokens.json` as source of truth
-2. Use `components.json` for component API
-3. Follow README rules strictly
-4. Do not deviate from token system
+```
+_root → global/theme → component → UI
+```
 
 ---
 
-## 14. Important Notes
+## 13. Important Notes
 
-* This design system is deterministic
+* This system is deterministic
 * No visual decision should be inferred
-* Every UI element must be traceable to a token
-* If a token is missing → stop and ask
+* Every UI element must map to a token
+* If a token is missing → STOP and ask
 
 ---
