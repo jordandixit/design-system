@@ -1,10 +1,22 @@
-# Design System
+# AI Implementation Guide — Design System
 
-This repository contains a complete, production-ready Design System designed to be:
+This document explains how to use the Design System files to generate UI components without ambiguity.
 
-* Developer-friendly (clear API, deterministic behavior)
-* AI-consumable (no ambiguity, strict naming, structured data)
-* Scalable (SaaS desktop-first architecture)
+You must strictly follow the structure and rules defined here.
+
+---
+
+# 📚 Source Files
+
+You are provided with the following files:
+
+* `tokens.json`
+* `component-api.json`
+* `component-behaviour.json`
+* `component-examples.json`
+* `component-mapping.json`
+* `component-rules.json`
+
 
 ---
 
@@ -292,6 +304,39 @@ Structured for automated UI generation.
 * Use `component-mapping.json` for styling
 * Use `component-behavior.json` for logic
 * Use `component-examples.json` for generation
+
+---
+
+## Example Workflow
+
+Generate Button: 1. 
+
+1. Read Button API
+2. Identify variant + state
+3. Apply mapping tokens
+4. Apply behavior rules
+5. Validate with examples
+6. Generate component
+
+---
+
+## Error Handling
+
+If something is missing:
+
+DO NOT GUESS
+ASK FOR CLARIFICATION
+
+---
+
+## Validation Rules
+
+Before generating code, ensure:
+
+* all props are valid
+* no invalid combinations
+* mapping exists for all states
+* behavior is defined
 
 ---
 
