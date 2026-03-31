@@ -1,0 +1,1824 @@
+{
+  "meta": {
+    "version": 1,
+    "naming": "Figma component names preserved as source IDs.",
+    "stateModel": {
+      "standardStates": [
+        "default",
+        "hovered",
+        "pressed",
+        "focused",
+        "disabled"
+      ],
+      "rules": [
+        "focused uses focus tokens/effects",
+        "disabled overrides interactive states",
+        "boolean flags express structure/content presence, not visual states unless explicitly documented"
+      ]
+    },
+    "globalVariants": [
+      "brand",
+      "neutral",
+      "danger",
+      "success",
+      "warning"
+    ],
+    "notes": [
+      "Use field components as wrappers around base controls.",
+      "Prefer nested instances/composition over duplicating sub-elements."
+    ]
+  },
+  "components": [
+    {
+      "name": "accordion",
+      "props": [
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "avatar-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "contentType",
+          "type": "enum",
+          "values": [
+            "placeholder",
+            "initials",
+            "image"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isInteractive",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "avatar-label",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "avatar-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "badge",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "brand",
+            "neutral",
+            "danger",
+            "success",
+            "warning"
+          ]
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconRight",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "banner",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "brand",
+            "neutral",
+            "danger",
+            "success",
+            "warning"
+          ]
+        },
+        {
+          "name": "hasIcon",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "breadcrumb",
+      "props": [
+        {
+          "name": "contentCount",
+          "type": "enum",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "+3"
+          ]
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "link"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "button",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "ghost",
+            "danger"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconRight",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "button-icon",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "ghost",
+            "danger"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "hasIcon",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "button-icon-menu",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "calendar",
+      "props": [],
+      "composition": {
+        "nestedInstances": [
+          "button-icon",
+          "select-base",
+          "select-base",
+          "button-icon"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "calendar-date",
+      "props": [
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "card-action",
+      "props": [
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        },
+        {
+          "name": "hasDescription",
+          "type": "boolean"
+        },
+        {
+          "name": "hasHintText",
+          "type": "boolean"
+        },
+        {
+          "name": "hasCheckbox",
+          "type": "boolean"
+        },
+        {
+          "name": "hasRadio",
+          "type": "boolean"
+        },
+        {
+          "name": "hasSwitch",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconRight",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "checkbox-base",
+          "radio-base",
+          "switch-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "card-image",
+      "props": [
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "hasDescription",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "checkbox-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "checkbox-item",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "hasDescription",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "checkbox-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "chip-item",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconRight",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "combobox-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "validation",
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        {
+          "name": "isFilled",
+          "type": "boolean"
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "combobox-field",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean"
+        },
+        {
+          "name": "hasLabel",
+          "type": "boolean"
+        },
+        {
+          "name": "hasHintText",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "combobox-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "datepicker-base",
+      "props": [
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isFilled",
+          "type": "boolean"
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "calendar"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "datepicker-field",
+      "props": [
+        {
+          "name": "isRequired",
+          "type": "boolean"
+        },
+        {
+          "name": "hasLabel",
+          "type": "boolean"
+        },
+        {
+          "name": "hasHintText",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "datepicker-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "divider",
+      "props": [
+        {
+          "name": "contentType",
+          "type": "enum",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "dropdown-item",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        },
+        {
+          "name": "hasSwitch",
+          "type": "boolean"
+        },
+        {
+          "name": "hasCheckbox",
+          "type": "boolean"
+        },
+        {
+          "name": "hasBadge",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "dropdown-list",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "hasScrollbar",
+          "type": "boolean"
+        },
+        {
+          "name": "hasTitle",
+          "type": "boolean"
+        },
+        {
+          "name": "hasSearch",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "dropdown-search",
+          "dropdown-title",
+          "dropdown-item"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "dropdown-search",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isFilled",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "dropdown-title",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "input-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "validation",
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        {
+          "name": "isFilled",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "input-field",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean"
+        },
+        {
+          "name": "hasLabel",
+          "type": "boolean"
+        },
+        {
+          "name": "hasHintText",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "input-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "link",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "error",
+            "success"
+          ]
+        },
+        {
+          "name": "contentType",
+          "type": "enum",
+          "values": [
+            "text",
+            "icon"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "modal",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "info",
+            "danger",
+            "success",
+            "warning"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "pagination",
+      "props": [],
+      "composition": {
+        "nestedInstances": [
+          "pagination-item"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "pagination-item",
+      "props": [
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "password-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "validation",
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        {
+          "name": "isFilled",
+          "type": "boolean"
+        },
+        {
+          "name": "isVisible",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "password-field",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean"
+        },
+        {
+          "name": "hasLabel",
+          "type": "boolean"
+        },
+        {
+          "name": "hasHintText",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "password-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "progress",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "progressValue",
+          "type": "enum-number",
+          "values": [
+            0,
+            25,
+            50,
+            75,
+            100
+          ]
+        },
+        {
+          "name": "labelPosition",
+          "type": "enum",
+          "values": [
+            "bottom",
+            "none",
+            "right"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "progress-value",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "radio-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "radio-item",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "hasDescription",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "radio-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "scrollbar",
+      "props": [
+        {
+          "name": "progressValue",
+          "type": "enum-number",
+          "values": [
+            25,
+            50,
+            75
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "search-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "validation",
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        {
+          "name": "isFilled",
+          "type": "boolean"
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "search-field",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean"
+        },
+        {
+          "name": "hasLabel",
+          "type": "boolean"
+        },
+        {
+          "name": "hasHintText",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "search-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "segemented",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "segmented-item",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "select-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "validation",
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        },
+        {
+          "name": "isFilled",
+          "type": "boolean"
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "select-field",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "isRequired",
+          "type": "boolean"
+        },
+        {
+          "name": "hasLabel",
+          "type": "boolean"
+        },
+        {
+          "name": "hasHintText",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "search-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "status-icon",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "brand",
+            "danger",
+            "warning",
+            "success"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "switch-base",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "switch-item",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "hasDescription",
+          "type": "boolean"
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "switch-base"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "tab-item",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "focused",
+            "disabled"
+          ]
+        },
+        {
+          "name": "isSelected",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        },
+        {
+          "name": "hasBadge",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "table",
+      "props": [],
+      "composition": {
+        "nestedInstances": [
+          "table-header",
+          "table-body"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "table-body",
+      "props": [],
+      "composition": {
+        "nestedInstances": [
+          "table-body-item"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "table-body-item",
+      "props": [
+        {
+          "name": "contentType",
+          "type": "enum",
+          "values": [
+            "checkbox",
+            "title",
+            "empty"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "table-header",
+      "props": [],
+      "composition": {
+        "nestedInstances": [
+          "table-header-item"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "table-header-item",
+      "props": [
+        {
+          "name": "contentType",
+          "type": "enum",
+          "values": [
+            "checkbox",
+            "title",
+            "empty"
+          ]
+        },
+        {
+          "name": "hasIconRight",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "tag",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "disabled"
+          ]
+        },
+        {
+          "name": "hasIconLeft",
+          "type": "boolean"
+        },
+        {
+          "name": "hasIconRight",
+          "type": "boolean"
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "toast",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "info",
+            "danger",
+            "warning",
+            "success"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "tooltip",
+      "props": [
+        {
+          "name": "arrowPosition",
+          "type": "enum",
+          "values": [
+            "bottom",
+            "left",
+            "top",
+            "right"
+          ]
+        }
+      ],
+      "composition": {},
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    },
+    {
+      "name": "tooltip-icon",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "lg",
+            "md",
+            "sm"
+          ]
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "default",
+            "hovered",
+            "pressed",
+            "disabled"
+          ]
+        },
+        {
+          "name": "validation",
+          "type": "enum",
+          "values": [
+            "none",
+            "error",
+            "success"
+          ]
+        }
+      ],
+      "composition": {
+        "nestedInstances": [
+          "tooltip"
+        ]
+      },
+      "implementation": {
+        "useSemanticTokensOnly": true,
+        "respectExactEnumValues": true
+      }
+    }
+  ]
+}
