@@ -25,7 +25,7 @@ You are provided with the following files:
 The Design System follows a strict layered architecture:
 
 ```
-_root (Primitives)
+root (Primitives)
    ↓
 global (Semantic - non-color)
    ↓
@@ -38,7 +38,7 @@ UI
 
 ---
 
-## 1. `_root` (Primitives)
+## 1. `root` (Primitives)
 
 Raw, non-semantic values.
 
@@ -154,7 +154,7 @@ Example: `dropdown-item`, `radio-item`
 ## Golden Rule
 
 👉 Components ONLY use `theme` tokens
-❌ Never use `_root` directly
+❌ Never use `root` directly
 
 ---
 
