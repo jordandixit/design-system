@@ -12,22 +12,6 @@
 
 ---
 
-### 1. About the component
-
-**When to use:** 
-[Example : Use to organize content, reveal structure, or group related actions.]
-
-**When not to use:** 
-[Example : Do not encode business state only through layout treatment.]
-
-**Best practices:** 
-[Example :
-- Use only semantic theme tokens for UI rendering.
-- Keep state handling explicit; never simulate hover/pressed with opacity-only changes.
-- Keep trigger width and popup alignment consistent across states.]
-
----
-
 ### 2. Figma MCP link
 
 > Attach the MCP link of the component.
@@ -42,22 +26,38 @@ Here is the link of the component and all its variables : [Component link]
 
 
 ```
-Example of what you should see:
+Frame :
+
+- Width : 
+- Height : 
+- Gap : 
+- Padding : 
+- Border Radius : 
+- Fill : 
+- Border :
+- Border Weight :
+
 ─────────────────────────
-Frame: Button/Primary/Default
-W: 120   H: 40
 
-Fill: #3B55E6
+Text :
 
-Text: Label
-  Font: Inter Medium 14px
-  Color: #FFFFFF
-  Line height: 20px
+- Text Style :
 
-Padding: Top 10  Right 16  Bottom 10  Left 16
-Gap (between icon and label): 8px
-Border radius: 6px
 ─────────────────────────
+
+Icon Left :
+
+- Width : 
+- Height :
+- Color :
+
+─────────────────────────
+
+Icon Right :
+
+- Width : 
+- Height :
+- Color : 
 ```
 
 ---
