@@ -66,14 +66,16 @@ Icon Right :
 
 > List all variation dimensions of the component.
 
-| Dimension    | Possible values                                         |
+| Properties   | Values                                                  |
 |--------------|---------------------------------------------------------|
-| Intent       | [e.g. primary, secondary, ghost, danger, link]          |
-| Size         | [e.g. sm, md, lg]                                       |
-| State        | [e.g. default, hover, focus, active, disabled, loading] |
-| Icon         | [e.g. none, left, right, only]                          |
-| Width        | [e.g. auto, full]                                       |
-| [Other]      | [e.g. ...]                                              |
+| size         | [sm, md, lg]                                            |
+| variant      | [primary, secondary, tertiary, ghost, danger]           |
+| state        | [default, hovered, focused, pressed, disabled]          |
+| hasIconLeft  | [true, false]                                           |
+| hasIconRight | [true, false]                                           |
+| IconLeft     | [instance swap]                                         |
+| IconRight    | [instance swap]                                         |
+
 
 ---
 
