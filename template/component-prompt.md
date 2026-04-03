@@ -15,28 +15,22 @@
 ### 1. About the component
 
 **When to use:** 
-Use to organize content, reveal structure, or group related actions.
+[Example : Use to organize content, reveal structure, or group related actions.]
 
 **When not to use:** 
-Do not encode business state only through layout treatment.
+[Example : Do not encode business state only through layout treatment.]
 
 **Best practices:** 
+[Example :
 - Use only semantic theme tokens for UI rendering.
 - Keep state handling explicit; never simulate hover/pressed with opacity-only changes.
-- Keep trigger width and popup alignment consistent across states.
+- Keep trigger width and popup alignment consistent across states.]
 
 ---
 
 ### 2. Figma MCP link
 
 > Attach the MCP link of the component.
-> Capture all states side by side if possible (Figma → select master component → Cmd+Shift+C to copy as image).
-
-> What the screenshot should show:
-> - All variants and sizes
-> - All states (default, hover, focus, active, disabled, loading)
-> - Light and dark modes if applicable
-> - Edge cases (long label, icon only, etc.)
 
 Here is the link of the component and all its variables : [Component link]
 
@@ -45,11 +39,9 @@ Here is the link of the component and all its variables : [Component link]
 ### 3. Figma specs (Inspect panel)
 
 > Copy-paste the content from Figma's "Inspect" panel for the master component.
-> Select component → right panel → "Inspect" tab → copy the values.
+
 
 ```
-[Paste the raw Inspect panel content here]
-
 Example of what you should see:
 ─────────────────────────
 Frame: Button/Primary/Default
