@@ -1,4 +1,6 @@
 # System Prompt — Design System Implementation
+> Paste this block at the top of every session (or in your AI tool's system prompt field).
+> Fill in the `[bracketed]` areas. Replace `{curly brace}` sections with your actual JSON values.
  
 ---
  
