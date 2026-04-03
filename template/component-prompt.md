@@ -71,6 +71,7 @@ Icon Right :
 | size         | [sm, md, lg]                                            |
 | variant      | [primary, secondary, tertiary, ghost, danger]           |
 | state        | [default, hovered, focused, pressed, disabled]          |
+| isOpen       | [true, false]                                           |
 | hasIconLeft  | [true, false]                                           |
 | hasIconRight | [true, false]                                           |
 | IconLeft     | [instance swap]                                         |
@@ -89,12 +90,12 @@ Icon Right :
 - Border: `[token or "none"]`
 - Cursor: `pointer`
 
-#### Hover
+#### Hovered
 - Background: `[token or hex value]`
 - Text: `[unchanged / new value]`
 - Transition: `[e.g. background 200ms ease]`
 
-#### Focus (focus-visible)
+#### Focused (focus-visible)
 - Outline: `[e.g. 2px solid var(--color-brand-primary), offset 2px]`
 - Background: `[unchanged / new value]`
 
@@ -121,28 +122,7 @@ Icon Right :
 
 ---
 
-### 6. Expected props
-
-> List all props with their type and default value.
-
-| Prop          | Type                                                    | Default      | Description                                      |
-|---------------|---------------------------------------------------------|--------------|--------------------------------------------------|
-| `children`    | `ReactNode`                                             | —            | Component content                                |
-| `intent`      | `'primary' \| 'secondary' \| 'ghost' \| 'danger'`      | `'primary'`  | Visual intent                                    |
-| `size`        | `'sm' \| 'md' \| 'lg'`                                 | `'md'`       | Component size                                   |
-| `isDisabled`  | `boolean`                                               | `false`      | Disabled state                                   |
-| `isLoading`   | `boolean`                                               | `false`      | Loading state                                    |
-| `iconLeft`    | `ReactNode`                                             | `undefined`  | Icon to the left of the label                    |
-| `iconRight`   | `ReactNode`                                             | `undefined`  | Icon to the right of the label                   |
-| `fullWidth`   | `boolean`                                               | `false`      | Takes full available width                       |
-| `onClick`     | `(e: MouseEvent) => void`                               | `undefined`  | Click handler                                    |
-| `type`        | `'button' \| 'submit' \| 'reset'`                      | `'button'`   | Native HTML type                                 |
-| `ariaLabel`   | `string`                                                | `undefined`  | Accessible label (required for icon-only usage)  |
-| `[Add more]`  | `[type]`                                                | `[default]`  | [description]                                    |
-
----
-
-### 7. Behaviours & interactions
+### 6. Behaviours & interactions
 
 > Describe behaviours that are not visible in the screenshot.
 
@@ -157,17 +137,7 @@ Icon Right :
 
 ---
 
-### 8. Accessibility
-
-- **ARIA role:** `[e.g. button (native) / role="button" if using a div]`
-- **Required attributes:** `[e.g. aria-label if iconOnly, aria-busy="true" if loading]`
-- **Focus visible:** mandatory — do not remove the default outline without an alternative
-- **Contrast:** verified WCAG [AA/AAA] — minimum ratio [4.5:1 / 3:1]
-- **[Project-specific rule]**
-
----
-
-### 9. Usage rules (do / don't)
+### 7. Usage rules (do / don't)
 
 **Do:**
 - [e.g. Always pair a "danger" button with a confirmation dialog]
@@ -179,49 +149,8 @@ Icon Right :
 
 ---
 
-### 10. Edge cases to handle in code
 
-- [ ] Empty or undefined label
-- [ ] Icon without `ariaLabel` in icon-only mode
-- [ ] `isLoading` and `isDisabled` simultaneously (priority: `isDisabled`)
-- [ ] Very long label (> 40 characters)
-- [ ] Usage in an RTL context
-- [ ] [Other component-specific edge case]
-
----
-
-### 11. Expected usage example
-
-> Show how the component will be used by consuming code.
-
-```tsx
-// Standard usage
-<Button intent="primary" size="md" onClick={handleSubmit}>
-  Save changes
-</Button>
-
-// With left icon
-<Button intent="secondary" iconLeft={<PlusIcon />}>
-  Add item
-</Button>
-
-// Loading state
-<Button intent="primary" isLoading>
-  Saving...
-</Button>
-
-// Danger with confirmation
-<Button intent="danger" onClick={handleDelete}>
-  Delete account
-</Button>
-
-// Icon only
-<Button intent="ghost" iconLeft={<SearchIcon />} ariaLabel="Search" />
-```
-
----
-
-### 12. Additional information
+### 8. Additional information
 
 > Anything that doesn't fit in the categories above.
 
