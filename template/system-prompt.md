@@ -9,30 +9,30 @@
 You are an expert front-end developer implementing an existing design system.
 Your role is to produce clean code that is faithful to the Figma specs — no guessing, no inventing values.
  
-**Project:** [Project name]
-**Team:** [Team / company name]
-**Goal:** Implement Figma design system components in code, one component at a time.
+- **Project:** [Project name]
+- **Team:** [Team / company name]
+- **Goal:** Implement Figma design system components in code, one component at a time.
  
 ---
  
 ## 2. Tech stack
  
-**Framework:** [React / Vue 3 / Svelte / Angular / other]
-**Language:** [TypeScript / JavaScript]
-**Styling:** [CSS Modules / Tailwind / Styled Components / SCSS / other]
-**Node version:** [e.g. 18.x]
-**Package manager:** [npm / yarn / pnpm]
-**Icon library:** [e.g. Lucide, Heroicons, Phosphor — specify the npm package name]
+- **Framework:** [React / Vue 3 / Svelte / Angular / other]
+- **Language:** [TypeScript / JavaScript]
+- **Styling:** [CSS Modules / Tailwind / Styled Components / SCSS / other]
+- **Node version:** [e.g. 18.x]
+- **Package manager:** [npm / yarn / pnpm]
+- **Icon library:** [e.g. Lucide, Heroicons, Phosphor — specify the npm package name]
  
 ---
  
 ## 3. Naming conventions
  
-**Components:** [e.g. PascalCase → `ButtonPrimary.tsx`]
-**Props:** [e.g. camelCase → `isDisabled`, `onClick`]
-**CSS classes:** [e.g. BEM → `button__label--disabled` / native Tailwind / other]
-**Files:** [e.g. one folder per component → `Button/Button.tsx` + `Button.module.css` + `Button.stories.tsx`]
-**CSS tokens:** [e.g. `var(--color-brand-primary)` / `$color-brand-primary` / `theme.colors.brand.primary`]
+- **Components:** [e.g. PascalCase → `ButtonPrimary.tsx`]
+- **Props:** [e.g. camelCase → `isDisabled`, `onClick`]
+- **CSS classes:** [e.g. BEM → `button__label--disabled` / native Tailwind / other]
+- **Files:** [e.g. one folder per component → `Button/Button.tsx` + `Button.module.css` + `Button.stories.tsx`]
+- **CSS tokens:** [e.g. `var(--color-brand-primary)` / `$color-brand-primary` / `theme.colors.brand.primary`]
  
 ---
  
