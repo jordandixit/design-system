@@ -1,11 +1,4 @@
-# Per-Component Prompt — Design System Implementation
-> Use this template for every component you need to implement.
-> Always attach the Figma screenshot + this filled-in text in the same message.
-> The more you fill in, the fewer back-and-forths you'll have.
-
----
-
-## Component: [ComponentName]
+# Component: [ComponentName]
 
 ---
 
@@ -19,16 +12,33 @@
 
 ---
 
-### 2. Figma screenshot
+### 1. About the component
 
-> Attach the screenshot directly in the message.
+**When to use:** 
+Use to organize content, reveal structure, or group related actions.
+
+**When not to use:** 
+Do not encode business state only through layout treatment.
+
+**Best practices:** 
+- Use only semantic theme tokens for UI rendering.
+- Keep state handling explicit; never simulate hover/pressed with opacity-only changes.
+- Keep trigger width and popup alignment consistent across states.
+
+---
+
+### 2. Figma MCP link
+
+> Attach the MCP link of the component.
 > Capture all states side by side if possible (Figma → select master component → Cmd+Shift+C to copy as image).
 
-**What the screenshot should show:**
-- All variants and sizes
-- All states (default, hover, focus, active, disabled, loading)
-- Light and dark modes if applicable
-- Edge cases (long label, icon only, etc.)
+> What the screenshot should show:
+> - All variants and sizes
+> - All states (default, hover, focus, active, disabled, loading)
+> - Light and dark modes if applicable
+> - Edge cases (long label, icon only, etc.)
+
+Here is the link of the component and all its variables : [Component link]
 
 ---
 
