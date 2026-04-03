@@ -26,7 +26,7 @@ Here is the link of the component and all its variables : [Component link]
 
 
 ```
-Frame :
+Frame
 
 - Width : 
 - Height : 
@@ -39,13 +39,13 @@ Frame :
 
 ─────────────────────────
 
-Text :
+Text
 
 - Text Style :
 
 ─────────────────────────
 
-Icon Left :
+Icon Left
 
 - Width : 
 - Height :
@@ -53,7 +53,7 @@ Icon Left :
 
 ─────────────────────────
 
-Icon Right :
+Icon Right
 
 - Width : 
 - Height :
