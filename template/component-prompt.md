@@ -4,11 +4,11 @@
 
 ### 1. Summary
 
-**Figma name:** [Exact component name in Figma, e.g. "Button / Primary"]
-**Code name:** [Component name in code, e.g. `Button`]
-**Category:** [Atom / Molecule / Organism / Template]
-**Priority:** [High / Medium / Low]
-**Dependencies:** [Other required components, e.g. `Icon`, `Spinner` — or "none"]
+- **Figma name:** [Exact component name in Figma, e.g. "Button / Primary"]
+- **Code name:** [Component name in code, e.g. `Button`]
+- **Category:** [Atom / Molecule / Organism / Template]
+- **Priority:** [High / Medium / Low]
+- **Dependencies:** [Other required components, e.g. `Icon`, `Spinner` — or "none"]
 
 ---
 
