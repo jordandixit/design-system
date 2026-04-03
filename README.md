@@ -1,370 +1,178 @@
-# AI Implementation Guide — Design System
+# Design System — AI Implementation Guide
 
-This document explains how to use the Design System files to generate UI components without ambiguity.
-
-You must strictly follow the structure and rules defined here.
-
----
-
-# 📚 Source Files
-
-You are provided with the following files:
-
-* `tokens.json`
-* `component-api.json`
-* `component-behaviour.json`
-* `component-examples.json`
-* `component-mapping.json`
-* `component-rules.json`
-
+This repository is the **single source of truth** for implementing UI components.  
+Read this document fully before generating any code. Every rule here is non-negotiable.
 
 ---
 
-# 🧱 Architecture Overview
-
-The Design System follows a strict layered architecture:
+## Repository structure
 
 ```
-root (Primitives)
-   ↓
-global (Semantic - non-color)
-   ↓
-theme (Semantic - color)
-   ↓
+tokens/
+├── root.json        ← Primitives (raw values, never used directly in components)
+├── global.json      ← Semantic tokens — structure & layout (no color values)
+└── theme.json       ← Semantic tokens — color (light & dark mode)
+
+template/
+└── component-prompt.md   ← Spec template to fill in for each component
+```
+
+---
+
+## Token architecture
+
+Tokens are organized in three strict layers. **Never skip a layer.**
+
+```
+root  (primitives)
+  ↓
+global  (semantic — structure)
+  ↓
+theme  (semantic — color)
+  ↓
 components
-   ↓
-UI
 ```
 
----
+### Layer 1 — `root` (primitives)
 
-## 1. `root` (Primitives)
+Raw, non-semantic values. The source of all design decisions.
 
-Raw, non-semantic values.
+Contains: color palettes (neutral, brand, danger, warning, success + alpha variants), typography scale (font size, weight, line-height, letter-spacing), spacing, sizing, radius, border widths, grid columns and gutters.
 
-Examples:
+**Never reference `root` tokens directly in component code.**  
+They exist only to feed `global` and `theme`.
 
-* Colors (grayscale, brand, success, danger, etc.)
-* Numbers (spacing, radius, sizes)
+### Layer 2 — `global` (semantic — structure)
 
-❗ Never used directly in components.
+Named, reusable values for layout and typography. References `root` via `{root.*}`.
 
----
+| Category | Tokens |
+|---|---|
+| `global.font.family` | `heading`, `content` |
+| `global.font.size.heading` | `h1` (48px) → `h4` (28px) |
+| `global.font.size.content` | `lead` (24px), `emphasis` (20px), `base` (16px), `subtle` (14px), `caption` (12px) |
+| `global.font.weight` | `regular`, `medium`, `semibold`, `bold` |
+| `global.font.leading` | Paired with each size level |
+| `global.layout.padding` | `2xs` → `5xl` (2px → 64px) |
+| `global.layout.gap` | `xs` → `4xl` (2px → 40px) |
+| `global.layout.radius` | `xs` (2px) → `full` (999px) |
+| `global.layout.border` | `thin` (1px), `thick` (2px), `thicker` (4px) |
+| `global.layout.size` | `2xs` (4px) → `8xl` (64px) |
+| `global.layout.grid` | `sm` (4 cols), `md` (8 cols), `lg` (12 cols) |
 
-## 2. `global` (Semantic – Structure)
+### Layer 3 — `theme` (semantic — color)
 
-Non-color semantic tokens.
+All color tokens. Every value has both a `Light` and `Dark` mode variant.  
+**Components only use `theme` tokens for color. Never `root.color.*` directly.**
 
-Includes:
-
-* Typography (font, size, weight, line-height)
-* Layout (spacing, padding, gap)
-* Radius
-* Elevation (shadow)
-* Grid
-
-Used to define structure and layout.
-
----
-
-## 3. `theme` (Semantic – Color)
-
-Color tokens used by components.
-
-### Naming convention
+#### Token naming pattern
 
 ```
 theme.[category].[type].[variant].[state]
 ```
 
-Examples:
+**Categories:** `background`, `text`, `border`, `icon`  
+**Types (for stateful tokens):** `global`, `state`  
+**Variants (intensity scale):** `faint` → `lighter` → `medium` → `moderate` → `bolder` → `strong`  
+**States:** `default`, `hovered`, `pressed`, `disabled` (disabled is under `state.shared`)
 
-* `theme.background.state.neutral.faint.default`
-* `theme.text.state.brand.bolder.hovered`
-* `theme.border.state.danger.moderate.default`
-
----
-
-## 4. Components
-
-Components are defined in `components.json`.
-
-Each component includes:
-
-* props (variants, states, booleans)
-* composition (nested instances)
-* structural rules
-
----
-
-# 🧩 Component Model
-
-## Component Types
-
-### Base
-
-Core interactive element
-Example: `input-base`, `button`
-
-### Field
-
-Wrapper for label + hint + validation
-Example: `input-field`, `select-field`
-
-### Item
-
-Reusable list element
-Example: `dropdown-item`, `radio-item`
-
----
-
-## Props Types
-
-### Enum
-
-```json
-"size": ["sm", "md", "lg"]
-```
-
-### Boolean
-
-```json
-"isOpen": true | false
-```
-
-### State
-
-```json
-"default", "hovered", "pressed", "focused", "disabled"
-```
-
----
-
-## Global State Rules
-
-* `disabled` overrides ALL states
-* `focused` uses focus tokens (ring)
-* `hovered` and `pressed` are pointer states
-* `isOpen` is NOT a visual state, but a structural one
-
----
-
-# 🎨 Styling System
-
-## Golden Rule
-
-👉 Components ONLY use `theme` tokens
-❌ Never use `root` directly
-
----
-
-## Token Mapping
-
-Defined in:
+#### Examples
 
 ```
-component-mapping.json
+theme.background.state.brand.strong.default     → brand button background
+theme.background.state.brand.strong.hovered     → brand button background on hover
+theme.background.state.shared.disabled          → any disabled element background
+theme.text.global.neutral.strong                → primary body text
+theme.text.global.neutral.moderate              → muted/secondary text
+theme.text.state.brand.bolder.default           → brand-colored interactive text
+theme.border.state.danger.moderate.default      → danger input border
 ```
 
-Each component maps:
+#### Light & dark mode
 
-* background
-* text
-* border
-* icon
-* elevation
-* focus
+Each `theme` token contains both values. When generating CSS, always output both:
 
-Example:
+```css
+/* Example: theme.background.state.brand.strong.default */
+/* Light: root.color.brand.500 = #2b7fff */
+/* Dark:  root.color.brand.500 = #2b7fff */
 
-```json
-"button": {
-  "primary": {
-    "default": {
-      "background": "theme.background.state.brand.medium.default",
-      "text": "theme.text.state.brand.bolder.default"
-    }
-  }
-}
+/* Example: theme.background.state.neutral.medium.default */
+/* Light: root.color.neutral.100 = #f5f5f5 */
+/* Dark:  root.color.neutral.900 = #171717  */
 ```
 
----
-
-# ⚙️ Component API
-
-Defined in:
-
-```
-component-api.json
-```
-
-Includes:
-
-* props
-* slots
-* constraints
-* accessibility roles
+Implement dark mode using a CSS class or `prefers-color-scheme` media query — to be confirmed per component spec.
 
 ---
 
-# 🔁 Behavior & Interactions
+## State rules
 
-Defined in:
+These rules apply globally to every component.
 
-```
-component-behavior.json
-```
-
-Includes:
-
-* state transitions
-* keyboard interactions
-* accessibility rules
-* open/close logic
+- `disabled` overrides ALL other states. A disabled element never shows hover or focus styles.
+- `focused` shows a focus ring. Use `theme.border.state.*` focus tokens.
+- `hovered` and `pressed` are pointer-driven states.
+- When `isLoading` and `isDisabled` are both true, `isDisabled` takes priority.
 
 ---
 
-# 📏 Rules & Usage
+## Styling rules
 
-Defined in:
-
-```
-component-rules.md
-```
-
-Includes:
-
-* when to use
-* when NOT to use
-* best practices
-* anti-patterns
+- **Only use `theme` tokens for color.** No `root.color.*`, no hardcoded hex values.
+- **Only use `global` tokens for spacing, sizing, radius, and typography.** No hardcoded pixel values.
+- If a required token does not exist in the files, flag it with `⚠️ Missing token:` and stop. Do not invent a value.
+- The visual source of truth is Figma. This repo is the implementation source of truth. Both must stay aligned.
 
 ---
 
-# 🧪 Examples
+## Accessibility
 
-Defined in:
-
-```
-component-examples.json
-```
-
-Includes:
-
-* valid combinations
-* edge cases
-* invalid states
-* real UI scenarios
+- All interactive elements must be keyboard-navigable.
+- Focus is always visible. Never suppress `outline` without providing a custom focus ring using `theme.border` tokens.
+- Disabled states use `aria-disabled="true"` in addition to (or instead of) the HTML `disabled` attribute where appropriate.
+- Do not convey state or meaning through color alone. Always pair color with text, icon, or shape.
+- Minimum contrast ratio: WCAG AA (4.5:1 for text, 3:1 for UI components).
+- ARIA roles and attributes must be specified in the component prompt. If not specified, flag with `⚠️ ARIA role not defined`.
 
 ---
 
-# 🎯 Design Principles
+## Handling a component request
 
-## 1. Deterministic System
+When you receive a component spec (from `template/component-prompt.md`):
 
-No ambiguity. Every state and behavior is defined.
-
-## 2. Token-Driven
-
-All UI is driven by semantic tokens.
-
-## 3. Scalable
-
-Works for large SaaS products.
-
-## 4. AI-Compatible
-
-Structured for automated UI generation.
+1. Read the spec fully before writing any code.
+2. Identify all variants, states, and props listed.
+3. Map each visual property to the correct `theme` or `global` token.
+4. Implement all states — do not skip any.
+5. Apply state priority rules (disabled wins, etc.).
+6. Verify accessibility attributes are included.
+7. Generate the code.
 
 ---
 
-# ♿ Accessibility
+## Handling ambiguity
 
-* All interactive components support keyboard navigation
-* Focus is always visible (focus ring)
-* ARIA roles defined in `component-api.json`
-* Validation must not rely on color only
+If a spec is missing, incomplete, or contradictory:
 
----
+1. Flag it at the top of your response with `⚠️ Ambiguity:` and describe what is unclear.
+2. State your interpretation explicitly.
+3. Generate the code using that interpretation.
+4. Do not block or ask for confirmation — proceed and flag.
 
-# 🔧 Implementation Guidelines
+If a token mapping is missing from the files:
 
-## For Developers
-
-* Do not hardcode values
-* Always use tokens
-* Respect state priority
-* Follow component API strictly
+1. Flag it with `⚠️ Missing token:` and name the property.
+2. Do not invent or approximate a value.
+3. Leave the property as a clearly named placeholder: `/* TODO: missing token for [property] */`
 
 ---
 
-## For AI Systems
+## What you must not do
 
-* Use `component-api.json` as source of truth
-* Use `component-mapping.json` for styling
-* Use `component-behavior.json` for logic
-* Use `component-examples.json` for generation
-
----
-
-## Example Workflow
-
-Generate Button: 1. 
-
-1. Read Button API
-2. Identify variant + state
-3. Apply mapping tokens
-4. Apply behavior rules
-5. Validate with examples
-6. Generate component
-
----
-
-## Error Handling
-
-If something is missing:
-
-DO NOT GUESS
-ASK FOR CLARIFICATION
-
----
-
-## Validation Rules
-
-Before generating code, ensure:
-
-* all props are valid
-* no invalid combinations
-* mapping exists for all states
-* behavior is defined
-
----
-
-# 🚀 Final Goal
-
-This Design System guarantees:
-
-* Visual consistency
-* Behavioral consistency
-* Predictable implementation
-* Zero ambiguity for AI and developers
-
----
-
-# 📌 Notes
-
-* Figma is the visual source of truth
-* This repository is the implementation source of truth
-* Both must stay aligned
-
----
-
-# 🧠 Summary
-
-This is not just a UI kit.
-
-This is a **complete implementation contract** between:
-
-* Design
-* Development
-* AI systems
+- Do not use `root` tokens directly in component styling.
+- Do not hardcode any color, spacing, radius, or font value.
+- Do not invent token names that do not exist in `root.json`, `global.json`, or `theme.json`.
+- Do not simplify or merge states — implement every state as specified.
+- Do not create unrequested wrapper components or abstractions.
+- Do not reference files that do not exist in this repository (`component-api.json`, `component-mapping.json`, etc. do not exist — ignore any reference to them).
