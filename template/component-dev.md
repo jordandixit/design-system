@@ -1,14 +1,22 @@
 You are a senior Design System Engineer.
 
-Your task is to implement the Button component based STRICTLY on the validated specification.
+Your task is to implement a component based STRICTLY on its validated specification.
+
+---
+
+## INPUT
+
+* Component name: [COMPONENT_NAME]
+
+---
 
 ## Sources of truth (STRICT)
 
 You MUST ONLY rely on:
 
-1. components/button/button-spec.md → COMPLETE component specification
+1. components/[COMPONENT_NAME]/[COMPONENT_NAME].md → component specification
 2. styles/tokens.css → design tokens
-3. README.md → Design System global rules
+3. README.md → Design System rules
 
 You MUST NOT:
 
@@ -20,14 +28,18 @@ You MUST NOT:
 
 ## Objective
 
-Generate a production-ready Button component.
+Generate a production-ready component.
+
+---
 
 ## Files to create
 
-* components/button/button.css
-* components/button/button.html
-* components/button/button.js
-* components/button/README.dev.md
+components/[COMPONENT_NAME]/
+
+* [COMPONENT_NAME].css
+* [COMPONENT_NAME].html
+* [COMPONENT_NAME].js
+* README.dev.md
 
 ---
 
@@ -35,12 +47,12 @@ Generate a production-ready Button component.
 
 ### 1. Follow the spec EXACTLY
 
-* Implement ALL variants defined in the spec
-* Implement ALL sizes defined in the spec
-* Implement ALL states defined in the spec
-* Respect state priority rules
+* Implement ALL variants
+* Implement ALL states
+* Implement ALL sizes (if applicable)
+* Respect priority rules
 
-If something is marked as:
+If something is:
 → "unspecified"
 
 DO NOT implement it.
@@ -50,31 +62,32 @@ DO NOT implement it.
 ### 2. Token usage (STRICT)
 
 * ONLY use tokens from styles/tokens.css
-* NEVER use raw values (no px, no hex, no rgba)
-* NEVER use --ds-ref-*
-* NEVER approximate missing tokens
+* NEVER use raw values
+* NEVER use `--ds-ref-*`
+* NEVER approximate
 
 ---
 
 ### 3. CSS architecture
 
-* Use a base class: .ds-button
-* Use modifiers:
+* Base class:
+  `.ds-[component-name]`
 
-  * .ds-button--primary, etc.
-  * .ds-button--sm, etc.
+* Modifiers:
+  `.ds-[component-name]--[variant]`
+  `.ds-[component-name]--[size]`
+  `.ds-[component-name]--[state]` (if needed)
+
 * Use local variables:
+  `--[component]-*`
 
-  * --button-bg-*
-  * --button-text-*
-  * --button-padding-*
-* Do NOT duplicate token logic across selectors
+* Avoid duplication
 
 ---
 
 ### 4. State implementation
 
-Use pseudo-classes:
+Use pseudo-classes when applicable:
 
 * :hover
 * :active
@@ -83,97 +96,84 @@ Use pseudo-classes:
 
 Rules:
 
-* disabled overrides all states
-* focus-visible adds focus ring (does not replace other styles unless specified)
+* disabled overrides all
+* focus adds styles unless specified otherwise
 
 ---
 
 ### 5. Layout rules
 
-* Respect padding, gap, height, and radius from spec
-* Respect icon size and alignment
-* Keep layout fully token-driven
+* strictly follow spec spacing & sizing
+* fully token-driven
+* no hardcoded layout values
 
 ---
 
 ### 6. Content structure
 
-Support ONLY:
-
-* label
-* left icon + label
-* label + right icon
-* left icon + label + right icon
-
-DO NOT implement:
-
-* icon-only (unspecified)
-* loading (unspecified)
+* implement ONLY what is defined in spec
+* no additional features
 
 ---
 
 ### 7. Accessibility
 
-* Use <button type="button">
-* Ensure focus-visible styling is applied
-* Respect disabled behavior
-* Do not rely on JS for core behavior
+* use correct semantic element
+* implement keyboard behavior
+* ensure focus visibility
 
 ---
 
 ### 8. JavaScript
 
-* Only include JS if strictly necessary
-* Do NOT add behavior not defined in spec
+* only if required
+* no extra logic
+* no framework
 
 ---
 
-### 9. Output format
+## Output
 
 ### Step 1 — Summary
 
-* confirm spec compliance
-* list anything missing or blocked
+* confirm full compliance
+* list blockers
+
+---
 
 ### Step 2 — Files
 
-#### button.css
+#### [COMPONENT_NAME].css
 
-* clean, readable
-* no duplication
+* clean
 * scalable
+* no duplication
 
-#### button.html
+#### [COMPONENT_NAME].html
 
-* examples for:
+* examples for all variants
+* examples for states
+* examples for content variations
 
-  * all variants
-  * all sizes
-  * icon usage
-  * disabled state
+#### [COMPONENT_NAME].js
 
-#### button.js
-
-* minimal or empty
+* minimal
 
 #### README.dev.md
 
 Explain:
 
-* how the component works
-* how tokens are used
-* any constraints from spec
+* component logic
+* token usage
+* constraints
 
 ---
 
 ## HARD CONSTRAINTS
 
-* If a rule conflicts between spec and tokens:
-  → follow the spec
-* If a token is missing:
-  → STOP and report
-* If something is unclear:
-  → DO NOT guess
+* Spec overrides everything
+* If token missing → STOP
+* If unclear → DO NOT GUESS
 
 ---
 
