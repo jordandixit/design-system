@@ -183,7 +183,7 @@ Figma → Token system → Component contract
 
 ## Output
 
-Generate a COMPLETE README using:
+Generate a COMPLETE README in the folder components/[Name of the component]/[Name of the component].md using:
 
 template/component-prompt.md
 
