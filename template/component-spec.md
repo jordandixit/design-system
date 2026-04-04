@@ -1,12 +1,13 @@
 You are a senior Design System Engineer working with a Figma MCP connection.
 
-Your task is to generate a COMPLETE and STRICT component specification using the template:
+Your task is to generate a COMPLETE and STRICT component specification.
 
-template/component-prompt.md
+## INPUT
 
-and the Figma MCP Link : 
-[Figma MCP Link]
+* Figma MCP Link: [PASTE LINK HERE]
+* Component name: [COMPONENT_NAME]
 
+---
 
 ## IMPORTANT
 
@@ -33,7 +34,7 @@ Extract the component from Figma and translate it into a FULL specification.
 
 This specification must:
 
-* describe the component completely
+* be complete
 * be unambiguous
 * be fully token-compliant
 * be usable by an AI to generate code WITHOUT guessing
@@ -45,11 +46,10 @@ This specification must:
 ### 1. Tokens are the ONLY source of values
 
 * NEVER output raw values (no px, no hex, no rgba)
-* ALWAYS map to existing tokens
-* NEVER use --ds-ref-*
+* ALWAYS map to tokens
+* NEVER use `--ds-ref-*`
 
 If a value exists in Figma but NOT in tokens:
-
 → DO NOT approximate
 → DO NOT invent
 → report it as a missing token
@@ -62,9 +62,8 @@ If a value exists in Figma but NOT in tokens:
 * DO NOT invent states
 * DO NOT simplify structure
 
-If something is unclear → mark it as:
-
-"unspecified"
+If something is unclear:
+→ mark it as "unspecified"
 
 ---
 
@@ -74,34 +73,27 @@ You MUST extract:
 
 #### Variants
 
-* full list
-* visual intent of each variant
+* list ALL variants
+* describe their intent
 
-#### Sizes
+#### Sizes (if applicable)
 
-* sm / md / lg (or others)
-* differences in:
+* list sizes
+* define differences:
 
-  * padding
-  * height
+  * spacing
   * typography
+  * sizing
   * icon size
 
 #### States
 
-* default
-* hovered
-* pressed
-* focus-visible
-* disabled
+* list ALL states present in Figma
 
 For each state:
 
-* describe visual differences
+* describe visual changes
 * define priority rules
-
-Example:
-disabled > pressed > hovered > default
 
 ---
 
@@ -109,23 +101,23 @@ disabled > pressed > hovered > default
 
 Define:
 
-* padding (block + inline)
-* gap
+* spacing (padding, gap)
 * alignment
-* icon placement
-* min-height
 * sizing logic
+* layout behavior (auto, fixed, fluid)
 
 ---
 
 ### 5. Content model
 
-Define allowed structures:
+Define ALL supported structures.
 
-* label only
-* left icon + label
-* label + right icon
-* icon only
+Examples:
+
+* label
+* icon + label
+* multiple slots
+* media/content blocks
 
 ---
 
@@ -133,13 +125,12 @@ Define allowed structures:
 
 Define:
 
-* interaction feedback
-* hover behavior
-* pressed behavior
-* focus behavior
+* interaction behavior
+* hover / pressed / focus
 * disabled behavior
+* dynamic states (if any)
 
-If not visible → mark as "unspecified"
+If not defined → mark "unspecified"
 
 ---
 
@@ -147,44 +138,47 @@ If not visible → mark as "unspecified"
 
 Define:
 
-* semantic element (button vs a)
-* icon-only requirements
-* focus expectations
+* semantic role (button, input, link, etc.)
+* keyboard interaction
+* focus requirements
+* accessibility constraints
 
 ---
 
 ### 8. Ambiguity detection (MANDATORY)
 
-You MUST include a section:
+Add a section:
 
 ## 🚨 Detected Issues
 
 List:
 
 * missing tokens
-* inconsistent spacing in Figma
-* unclear variants
-* unclear state behaviors
-* anything not mappable to tokens
+* inconsistencies
+* unclear behaviors
+* anything not mappable
 
-DO NOT FIX these issues — only report them.
+DO NOT fix them.
 
 ---
 
 ### 9. Strict mapping mindset
 
-You are not describing pixels.
-
 You are translating:
 
 Figma → Token system → Component contract
+
+NOT pixels → CSS
 
 ---
 
 ## Output
 
-Generate a COMPLETE README in the folder components/[Name of the component]/[Name of the component].md using:
+Generate a COMPLETE README at:
 
+components/[COMPONENT_NAME]/[COMPONENT_NAME].md
+
+Using:
 template/component-prompt.md
 
 Fill ALL sections.
@@ -193,15 +187,12 @@ Add:
 
 ## 🚨 Detected Issues
 
-at the end.
-
 ---
 
 ## Quality bar
 
-The output must allow a second AI to:
+The output must allow another AI to:
 
-* generate the component
+* generate code
 * without guessing
-* without asking questions
 * without using raw values
