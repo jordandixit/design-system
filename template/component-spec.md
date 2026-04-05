@@ -111,6 +111,7 @@ Define:
 ### 5. Content model
 
 Define ALL supported structures.
+For all icon, please use the library icon in the folder assets/icons/*.
 
 Examples:
 
@@ -122,6 +123,8 @@ Examples:
 ---
 
 ### 6. Behavior
+
+I would like you to base the animation behaviour of this component like : [Replace by the name of the component and the link]
 
 Define:
 
